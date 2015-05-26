@@ -89,16 +89,22 @@
                     [remoteDic setObject:[NSNumber numberWithInt:1] forKey:@"op_method"];
 
                     NSString *result=[SmartHomeAPIs Rm2SendData:remoteDic];
-                    if([result isEqualToString:@"success"])
-                    {
+                    if (success == 0) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [ProgressHUD showSuccess:@"语音控制成功"];
                         });
                     }
+                    
+                    if([result isEqualToString:@"success"])
+                    {
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            [ProgressHUD showSuccess:@"语音控制成功"];
+//                        });
+                    }
                     else
                     {
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            [ProgressHUD showSuccess:@"语音控制失败，请检查中控器"];
+                            [ProgressHUD showSuccess:@"语音命令上传失败"];
                         });
                     }
                 });

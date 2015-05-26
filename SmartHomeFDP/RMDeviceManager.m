@@ -18,7 +18,8 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *userName = [userDefaults stringForKey:@"username"];
     rmDeviceManager.docPath = [doc stringByAppendingPathComponent:userName];
-    rmDeviceManager.path = [rmDeviceManager.docPath stringByAppendingPathComponent:@"RMDeviceInfo.plist"];
+    rmDeviceManager.fileName = [userName stringByAppendingFormat:@"%@",@"RMDeviceInfo.plist"];
+    rmDeviceManager.path = [rmDeviceManager.docPath stringByAppendingPathComponent:rmDeviceManager.fileName];
     //self.path=[[NSBundle mainBundle]pathForResource:@"RMDeviceInfo" ofType:@"plist"];
     
     NSLog(@"path = %@",rmDeviceManager.path);
@@ -32,7 +33,8 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *userName = [userDefaults stringForKey:@"username"];
     self.docPath = [doc stringByAppendingPathComponent:userName];
-    self.path = [self.docPath stringByAppendingPathComponent:@"RMDeviceInfo.plist"];
+    self.fileName = [userName stringByAppendingFormat:@"%@",@"RMDeviceInfo.plist"];
+    self.path = [self.docPath stringByAppendingPathComponent:self.fileName];
     //self.path=[[NSBundle mainBundle]pathForResource:@"RMDeviceInfo" ofType:@"plist"];
     
     //NSLog(@"%@",self.path);
@@ -76,6 +78,7 @@
         BOOL plistExist=[self RMDeviceInfoPlistExist];
         if(!plistExist)
         {
+            [self createRMDeviceInfoPlist];
             self.RMDeviceArray=[[NSMutableArray alloc]init];
         }
         else

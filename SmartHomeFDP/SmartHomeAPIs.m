@@ -487,4 +487,60 @@
     }
     return @"Fail";
 }
+
+//6.1获取gps数据
++ (NSDictionary *)GetGPSData:(int)num
+{
+//    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+//    [dic setObject:[NSNumber numberWithInt:num] forKey:@"gpsDataNum"];
+//    [dic setObject:@"860719021423573" forKey:@"IEME"];
+//    NSData *requestData = [dic JSONData];
+//    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/getGPSData.action?IMEI=%@&gpsDataNum=%d",ipAddr,@"860719021423573",num];
+    NSLog(@"获取遥控列表url %@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    NSLog(@"GetGPSData error = %@", error);
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+    
+}
+//6.2获取某一天中每个小时的GPS数据
++ (NSDictionary *)GetOneDayGPSData:(NSString *)date{
+    //    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    //    [dic setObject:[NSNumber numberWithInt:num] forKey:@"gpsDataNum"];
+    //    [dic setObject:@"860719021423573" forKey:@"IEME"];
+    //    NSData *requestData = [dic JSONData];
+    //    NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/getOneDayGPSData?IMEI=%@&date=%@",ipAddr,@"860719021423573",date];
+    NSLog(@"获取遥控列表url %@",urlString);
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+    NSLog(@"GetOneDayGPSData error = %@", error);
+    if(data)
+    {
+        //NSLog(@"data = %@", [SmartHomeAPIs toDictionary:data]);
+        
+        return [[SmartHomeAPIs toDictionary:data] objectForKey:@"jsonMap"];
+        
+    }
+    else
+    {
+        return [[NSDictionary alloc]initWithObjectsAndKeys:@"fail",@"result",nil];
+    }
+    
+}
 @end

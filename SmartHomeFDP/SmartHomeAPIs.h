@@ -51,6 +51,10 @@ NSString *ipAddr;
 //3.4 设备解锁
 + (NSString *)AuthTCPDevice:(NSString *)mac type:(NSString *)type;
 
-//Voice
+//4.Voice
 + (NSString *)OperateVoiceCommand:(NSString *)urlStr;
+
+//6.获取gps数据
++ (NSDictionary *)GetGPSData:(int)num;
++ (NSDictionary *)GetOneDayGPSData:(NSString *)date;
 @end

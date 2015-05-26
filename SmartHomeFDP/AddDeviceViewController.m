@@ -42,7 +42,7 @@
     // Do any additional setup after loading the view from its nib.
     [self.navigationItem setTitle:@"添加中控"];
     [self.navigationController.navigationBar setTranslucent:NO];
-    
+
     [segmentControl addTarget:self action:@selector(segmentChangedValue:) forControlEvents:UIControlEventValueChanged];
     segmentIndex=0;
     

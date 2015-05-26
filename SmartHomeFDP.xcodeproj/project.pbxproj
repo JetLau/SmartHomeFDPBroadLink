@@ -106,6 +106,17 @@
 		606B35341AB2E9B600E6A8E3 /* libBLNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 606B35331AB2E9B600E6A8E3 /* libBLNetwork.a */; };
 		606C9B7D1A070D4C003BA6AD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C9B761A070D4C003BA6AD /* HomeViewController.m */; };
 		606C9B811A070D4C003BA6AD /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C9B7C1A070D4C003BA6AD /* DeviceListViewController.m */; };
+		606DC7A81B0C5D51001B78E8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606DC7A31B0C5D51001B78E8 /* MapViewController.m */; };
+		606DC7A91B0C5D51001B78E8 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606DC7A41B0C5D51001B78E8 /* MapViewController.xib */; };
+		606DC7AA1B0C5D51001B78E8 /* GpsDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606DC7A61B0C5D51001B78E8 /* GpsDataTableViewController.m */; };
+		606DC7AB1B0C5D51001B78E8 /* GpsDataTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606DC7A71B0C5D51001B78E8 /* GpsDataTableViewController.xib */; };
+		606DCB3B1B132852001B78E8 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DCB3A1B132852001B78E8 /* BaiduMapAPI.framework */; };
+		606DCB3F1B132895001B78E8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DCB3C1B132895001B78E8 /* CoreLocation.framework */; };
+		606DCB401B132895001B78E8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DCB3D1B132895001B78E8 /* OpenGLES.framework */; };
+		606DCB411B132895001B78E8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DCB3E1B132895001B78E8 /* Security.framework */; };
+		606DCB431B1328D2001B78E8 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 606DCB421B1328D2001B78E8 /* mapapi.bundle */; };
+		606DCB471B13294D001B78E8 /* GeocodeDemoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 606DCB451B13294D001B78E8 /* GeocodeDemoViewController.mm */; };
+		606DCB481B13294D001B78E8 /* GeocodeDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606DCB461B13294D001B78E8 /* GeocodeDemoViewController.xib */; };
 		60A7818D1A47AC3000F48B5F /* StatisticFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7818C1A47AC3000F48B5F /* StatisticFileManager.m */; };
 		60A781911A47AC7300F48B5F /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A7818F1A47AC7300F48B5F /* StatisticViewController.m */; };
 		60A781921A47AC7300F48B5F /* StatisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A781901A47AC7300F48B5F /* StatisticViewController.xib */; };
@@ -195,6 +206,8 @@
 		60C0206E1A0A6E12002E3764 /* voiceImg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0206A1A0A6E12002E3764 /* voiceImg@2x.jpg */; };
 		60C0206F1A0A6E12002E3764 /* voiceImgLight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0206B1A0A6E12002E3764 /* voiceImgLight.jpg */; };
 		60C020701A0A6E12002E3764 /* voiceImgLight@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0206C1A0A6E12002E3764 /* voiceImgLight@2x.jpg */; };
+		60C7A26E1AEF220B005314A5 /* SCRFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A26D1AEF220B005314A5 /* SCRFTPRequest.m */; };
+		60C7A2841B01D210005314A5 /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A2801B01D210005314A5 /* MyPoint.m */; };
 		60D3E9AB1A678BF9004FEF75 /* BLDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */; };
 /* End PBXBuildFile section */
 
@@ -370,6 +383,20 @@
 		606C9B761A070D4C003BA6AD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		606C9B7B1A070D4C003BA6AD /* DeviceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListViewController.h; sourceTree = "<group>"; };
 		606C9B7C1A070D4C003BA6AD /* DeviceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceListViewController.m; sourceTree = "<group>"; };
+		606DC7A21B0C5D51001B78E8 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		606DC7A31B0C5D51001B78E8 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		606DC7A41B0C5D51001B78E8 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		606DC7A51B0C5D51001B78E8 /* GpsDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsDataTableViewController.h; sourceTree = "<group>"; };
+		606DC7A61B0C5D51001B78E8 /* GpsDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsDataTableViewController.m; sourceTree = "<group>"; };
+		606DC7A71B0C5D51001B78E8 /* GpsDataTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GpsDataTableViewController.xib; sourceTree = "<group>"; };
+		606DCB3A1B132852001B78E8 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
+		606DCB3C1B132895001B78E8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		606DCB3D1B132895001B78E8 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		606DCB3E1B132895001B78E8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		606DCB421B1328D2001B78E8 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapAPI.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
+		606DCB441B13294D001B78E8 /* GeocodeDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeocodeDemoViewController.h; sourceTree = "<group>"; };
+		606DCB451B13294D001B78E8 /* GeocodeDemoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GeocodeDemoViewController.mm; sourceTree = "<group>"; };
+		606DCB461B13294D001B78E8 /* GeocodeDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeocodeDemoViewController.xib; sourceTree = "<group>"; };
 		60A7818B1A47AC3000F48B5F /* StatisticFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticFileManager.h; sourceTree = "<group>"; };
 		60A7818C1A47AC3000F48B5F /* StatisticFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticFileManager.m; sourceTree = "<group>"; };
 		60A7818E1A47AC7300F48B5F /* StatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticViewController.h; sourceTree = "<group>"; };
@@ -490,6 +517,10 @@
 		60C0206A1A0A6E12002E3764 /* voiceImg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "voiceImg@2x.jpg"; sourceTree = "<group>"; };
 		60C0206B1A0A6E12002E3764 /* voiceImgLight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = voiceImgLight.jpg; sourceTree = "<group>"; };
 		60C0206C1A0A6E12002E3764 /* voiceImgLight@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "voiceImgLight@2x.jpg"; sourceTree = "<group>"; };
+		60C7A26C1AEF220B005314A5 /* SCRFTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRFTPRequest.h; sourceTree = "<group>"; };
+		60C7A26D1AEF220B005314A5 /* SCRFTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRFTPRequest.m; sourceTree = "<group>"; };
+		60C7A27F1B01D210005314A5 /* MyPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPoint.h; sourceTree = "<group>"; };
+		60C7A2801B01D210005314A5 /* MyPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPoint.m; sourceTree = "<group>"; };
 		60D3E9A91A678BF9004FEF75 /* BLDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDeviceManager.h; sourceTree = "<group>"; };
 		60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDeviceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -499,15 +530,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				606DCB3F1B132895001B78E8 /* CoreLocation.framework in Frameworks */,
+				606DCB401B132895001B78E8 /* OpenGLES.framework in Frameworks */,
+				606DCB411B132895001B78E8 /* Security.framework in Frameworks */,
+				60C01F421A087709002E3764 /* CoreGraphics.framework in Frameworks */,
+				47B19CD01A0228D700FFA873 /* QuartzCore.framework in Frameworks */,
+				60C01F441A087709002E3764 /* SystemConfiguration.framework in Frameworks */,
+				606DCB3B1B132852001B78E8 /* BaiduMapAPI.framework in Frameworks */,
 				606B35341AB2E9B600E6A8E3 /* libBLNetwork.a in Frameworks */,
 				60C01F3F1A087709002E3764 /* AddressBook.framework in Frameworks */,
 				60C01F401A087709002E3764 /* AudioToolbox.framework in Frameworks */,
 				60C01F411A087709002E3764 /* AVFoundation.framework in Frameworks */,
-				60C01F421A087709002E3764 /* CoreGraphics.framework in Frameworks */,
 				60C01F431A087709002E3764 /* libz.dylib in Frameworks */,
-				60C01F441A087709002E3764 /* SystemConfiguration.framework in Frameworks */,
 				47B19CC81A02190500FFA873 /* Foundation.framework in Frameworks */,
-				47B19CD01A0228D700FFA873 /* QuartzCore.framework in Frameworks */,
 				47B19CC61A0218FB00FFA873 /* UIKit.framework in Frameworks */,
 				60C01F381A0876AD002E3764 /* iflyMSC.framework in Frameworks */,
 				47B19CCA1A02191000FFA873 /* CoreData.framework in Frameworks */,
@@ -576,6 +611,11 @@
 		47B19C831A0209B100FFA873 = {
 			isa = PBXGroup;
 			children = (
+				606DCB421B1328D2001B78E8 /* mapapi.bundle */,
+				606DCB3C1B132895001B78E8 /* CoreLocation.framework */,
+				606DCB3D1B132895001B78E8 /* OpenGLES.framework */,
+				606DCB3E1B132895001B78E8 /* Security.framework */,
+				606DCB3A1B132852001B78E8 /* BaiduMapAPI.framework */,
 				60BBC6DB1A343BB60023906B /* Settings.bundle */,
 				60BBC6D01A2FFFD30023906B /* Default-568h@2x.png */,
 				47B19C8E1A0209B100FFA873 /* SmartHomeFDP */,
@@ -598,6 +638,7 @@
 		47B19C8E1A0209B100FFA873 /* SmartHomeFDP */ = {
 			isa = PBXGroup;
 			children = (
+				60C7A26B1AEF21E7005314A5 /* SCRFTPRequest */,
 				60032F161A1AF1F600F07B8C /* APIS */,
 				60032EF91A1A105400F07B8C /* AFNetworking */,
 				47B19C931A0209B100FFA873 /* AppDelegate.h */,
@@ -887,6 +928,7 @@
 		60C01F2F1A0723B3002E3764 /* SettingView */ = {
 			isa = PBXGroup;
 			children = (
+				60C7A27E1B01D1FF005314A5 /* map */,
 				60A781851A47AB3500F48B5F /* statistic */,
 				470DACFF1A1F4EAA003A9EE8 /* SettingViewController.h */,
 				470DAD001A1F4EAA003A9EE8 /* SettingViewController.m */,
@@ -1151,6 +1193,33 @@
 			name = voice;
 			sourceTree = "<group>";
 		};
+		60C7A26B1AEF21E7005314A5 /* SCRFTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				60C7A26C1AEF220B005314A5 /* SCRFTPRequest.h */,
+				60C7A26D1AEF220B005314A5 /* SCRFTPRequest.m */,
+			);
+			name = SCRFTPRequest;
+			sourceTree = "<group>";
+		};
+		60C7A27E1B01D1FF005314A5 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				60C7A27F1B01D210005314A5 /* MyPoint.h */,
+				60C7A2801B01D210005314A5 /* MyPoint.m */,
+				606DC7A21B0C5D51001B78E8 /* MapViewController.h */,
+				606DC7A31B0C5D51001B78E8 /* MapViewController.m */,
+				606DC7A41B0C5D51001B78E8 /* MapViewController.xib */,
+				606DCB441B13294D001B78E8 /* GeocodeDemoViewController.h */,
+				606DCB451B13294D001B78E8 /* GeocodeDemoViewController.mm */,
+				606DCB461B13294D001B78E8 /* GeocodeDemoViewController.xib */,
+				606DC7A51B0C5D51001B78E8 /* GpsDataTableViewController.h */,
+				606DC7A61B0C5D51001B78E8 /* GpsDataTableViewController.m */,
+				606DC7A71B0C5D51001B78E8 /* GpsDataTableViewController.xib */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1252,10 +1321,12 @@
 				60C0203E1A0A3C67002E3764 /* login_textfield_more@2x.png in Resources */,
 				60C020371A0A3C67002E3764 /* login_dropdown_bg@2x.png in Resources */,
 				60C0204C1A0A3C67002E3764 /* voice_dark.png in Resources */,
+				606DC7AB1B0C5D51001B78E8 /* GpsDataTableViewController.xib in Resources */,
 				60C0203B1A0A3C67002E3764 /* login_textfield_bottom@2x.png in Resources */,
 				470DAD031A1F4EAA003A9EE8 /* SettingViewController.xib in Resources */,
 				60032F521A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.xib in Resources */,
 				60032F381A1CB8BD00F07B8C /* btn_stop_press.png in Resources */,
+				606DCB431B1328D2001B78E8 /* mapapi.bundle in Resources */,
 				60032F321A1CB70B00F07B8C /* AirCondition_reduce_press.png in Resources */,
 				60C020451A0A3C67002E3764 /* home_dark.png in Resources */,
 				470DACF11A1F4E88003A9EE8 /* AddDeviceViewController.xib in Resources */,
@@ -1314,7 +1385,9 @@
 				60C020461A0A3C67002E3764 /* home_light.png in Resources */,
 				60C020391A0A3C67002E3764 /* login_textfield@2x.png in Resources */,
 				60032F481A1DEF9E00F07B8C /* CustomRemoteViewController.xib in Resources */,
+				606DCB481B13294D001B78E8 /* GeocodeDemoViewController.xib in Resources */,
 				60C01F311A0724F3002E3764 /* DeviceInfo.plist in Resources */,
+				606DC7A91B0C5D51001B78E8 /* MapViewController.xib in Resources */,
 				60032F2B1A1CA5E000F07B8C /* btn_tv_right.png in Resources */,
 				60C020411A0A3C67002E3764 /* login_textfield_top.png in Resources */,
 				60C020331A0A3C67002E3764 /* login_btn_blue_press@2x.png in Resources */,
@@ -1383,11 +1456,13 @@
 				60C01F751A0879FA002E3764 /* SBJson4StreamWriter.m in Sources */,
 				47D5709D1A22CFA100646865 /* CustomCollectionViewCell.m in Sources */,
 				470DAD151A21811E003A9EE8 /* TCPDeviceViewController.m in Sources */,
+				606DC7A81B0C5D51001B78E8 /* MapViewController.m in Sources */,
 				470DAD111A203002003A9EE8 /* TCPDevice.m in Sources */,
 				60C01FE31A0A0626002E3764 /* LJCommonViewController.m in Sources */,
 				470DAD091A1F4F03003A9EE8 /* GCDAsyncSocket.m in Sources */,
 				60C0205A1A0A45AF002E3764 /* BLSP2ViewController.m in Sources */,
 				60032F1D1A1B546A00F07B8C /* ChangeRemoteNameViewController.m in Sources */,
+				60C7A2841B01D210005314A5 /* MyPoint.m in Sources */,
 				60032F131A1A106F00F07B8C /* AFURLRequestSerialization.m in Sources */,
 				60421DD61A0E7421007E868D /* MJFoundation.m in Sources */,
 				47DC4EEC1A0E0A9C00A7DBCD /* ProjectorViewController.m in Sources */,
@@ -1401,6 +1476,7 @@
 				470DAD0E1A202F8A003A9EE8 /* TCPDeviceManager.m in Sources */,
 				60A7818D1A47AC3000F48B5F /* StatisticFileManager.m in Sources */,
 				60C01F771A0879FA002E3764 /* SBJson4Writer.m in Sources */,
+				60C7A26E1AEF220B005314A5 /* SCRFTPRequest.m in Sources */,
 				47B19C921A0209B100FFA873 /* main.m in Sources */,
 				606C9B7D1A070D4C003BA6AD /* HomeViewController.m in Sources */,
 				60032F0F1A1A106F00F07B8C /* AFHTTPSessionManager.m in Sources */,
@@ -1413,11 +1489,13 @@
 				60421DD81A0E7421007E868D /* MJMember.m in Sources */,
 				47BEC0641A0B13F700FD9CDC /* RemoteControlDeviceViewController.m in Sources */,
 				60C01F741A0879FA002E3764 /* SBJson4StreamTokeniser.m in Sources */,
+				606DC7AA1B0C5D51001B78E8 /* GpsDataTableViewController.m in Sources */,
 				60032F0E1A1A106F00F07B8C /* AFHTTPRequestOperationManager.m in Sources */,
 				60C01FDF1A09AFBD002E3764 /* RootController.m in Sources */,
 				60421DD91A0E7421007E868D /* MJMethod.m in Sources */,
 				60A781911A47AC7300F48B5F /* StatisticViewController.m in Sources */,
 				60C01F4B1A087827002E3764 /* ISRDataHelper.m in Sources */,
+				606DCB471B13294D001B78E8 /* GeocodeDemoViewController.mm in Sources */,
 				47BEC0741A0DB9F900FD9CDC /* RMDevice.m in Sources */,
 				60C01F7D1A08C101002E3764 /* MainTabBarViewController.m in Sources */,
 				60C01F5C1A087966002E3764 /* JSONKit.m in Sources */,
@@ -1552,6 +1630,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SmartHomeFDP",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "SmartHomeFDP/SmartHomeFDP-Prefix.pch";
 				INFOPLIST_FILE = SmartHomeFDP/Info.plist;
@@ -1560,11 +1639,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SmartHomeFDP/lib",
-					/Users/dyy/Desktop/lab/open,
-					API,
-					"SDK/open_sdk_v1.4.1-1.1.6/iOS/模拟器",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartHomeFDP/SmartHomeFDP-Bridging-Header.h";
@@ -1588,6 +1665,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SmartHomeFDP",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "SmartHomeFDP/SmartHomeFDP-Prefix.pch";
 				INFOPLIST_FILE = SmartHomeFDP/Info.plist;
@@ -1596,11 +1674,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SmartHomeFDP/lib",
-					/Users/dyy/Desktop/lab/open,
-					API,
-					"SDK/open_sdk_v1.4.1-1.1.6/iOS/模拟器",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartHomeFDP/SmartHomeFDP-Bridging-Header.h";

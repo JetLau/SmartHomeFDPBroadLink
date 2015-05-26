@@ -13,6 +13,7 @@
 
 @property(strong,nonatomic)NSString *path;
 @property(strong,nonatomic)NSString *docPath;
+@property(strong,nonatomic)NSString *fileName;
 
 @property(strong,nonatomic)NSMutableArray *RMDeviceArray;
 
