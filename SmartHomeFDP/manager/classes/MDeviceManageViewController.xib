@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MDeviceManageViewController">
+            <connections>
+                <outlet property="addressSegment" destination="Qte-O7-euN" id="hww-Tc-PkC"/>
+                <outlet property="addressTableView" destination="Zg5-uu-R0k" id="NnD-LZ-f0s"/>
+                <outlet property="enquiryTypeSegment" destination="rjW-uT-DMi" id="AKE-p5-2Kt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zg5-uu-R0k">
+                    <rect key="frame" x="0.0" y="55" width="320" height="371"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="L1R-qD-L8O"/>
+                        <outlet property="delegate" destination="-1" id="SBh-hq-NTL"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzS-bl-k0l">
+                    <rect key="frame" x="26" y="505" width="269" height="45"/>
+                    <color key="backgroundColor" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="269" id="Vnm-6i-aCZ"/>
+                        <constraint firstAttribute="height" constant="45" id="ivh-Be-hHQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="查询">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="queryBtnClicked:" destination="-1" eventType="touchUpInside" id="03c-sr-GFi"/>
+                    </connections>
+                </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rjW-uT-DMi">
+                    <rect key="frame" x="0.0" y="450" width="320" height="29"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="0Js-Qf-3f7"/>
+                        <constraint firstAttribute="width" constant="320" id="Hjd-ma-Tfw"/>
+                    </constraints>
+                    <segments>
+                        <segment title="已申请中控"/>
+                        <segment title="设备列表"/>
+                        <segment title="设备申请"/>
+                        <segment title="问题反馈"/>
+                    </segments>
+                    <color key="tintColor" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qte-O7-euN">
+                    <rect key="frame" x="0.0" y="8" width="320" height="29"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="Bz1-yY-nFw"/>
+                        <constraint firstAttribute="height" constant="28" id="wSg-Nm-KFO"/>
+                    </constraints>
+                    <segments>
+                        <segment title="市"/>
+                        <segment title="区" enabled="NO"/>
+                        <segment title="街道" enabled="NO"/>
+                    </segments>
+                    <color key="tintColor" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Zg5-uu-R0k" firstAttribute="top" secondItem="Qte-O7-euN" secondAttribute="bottom" constant="19" id="0aL-5Z-Mx7"/>
+                <constraint firstAttribute="trailing" secondItem="HzS-bl-k0l" secondAttribute="trailing" constant="25" id="1um-Fe-EML"/>
+                <constraint firstAttribute="trailing" secondItem="Qte-O7-euN" secondAttribute="trailing" id="3bq-b4-bwu"/>
+                <constraint firstItem="HzS-bl-k0l" firstAttribute="top" secondItem="rjW-uT-DMi" secondAttribute="bottom" constant="27" id="8zD-ps-F7L"/>
+                <constraint firstAttribute="bottom" secondItem="HzS-bl-k0l" secondAttribute="bottom" constant="18" id="9bs-mJ-iDB"/>
+                <constraint firstAttribute="trailing" secondItem="rjW-uT-DMi" secondAttribute="trailing" id="E1M-sB-R9L"/>
+                <constraint firstAttribute="trailing" secondItem="Zg5-uu-R0k" secondAttribute="trailing" id="GeO-mt-6Y3"/>
+                <constraint firstItem="rjW-uT-DMi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UVL-b7-gkn"/>
+                <constraint firstItem="Qte-O7-euN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UZi-0z-ouH"/>
+                <constraint firstItem="Zg5-uu-R0k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Uwt-rn-mhN"/>
+                <constraint firstItem="HzS-bl-k0l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="26" id="bJC-Zh-YUT"/>
+                <constraint firstItem="Zg5-uu-R0k" firstAttribute="top" secondItem="Qte-O7-euN" secondAttribute="bottom" constant="19" id="cAQ-vD-LZe"/>
+                <constraint firstItem="rjW-uT-DMi" firstAttribute="top" secondItem="Zg5-uu-R0k" secondAttribute="bottom" constant="24" id="gAY-dm-gh2"/>
+                <constraint firstItem="HzS-bl-k0l" firstAttribute="top" secondItem="rjW-uT-DMi" secondAttribute="bottom" constant="27" id="iyg-mo-byq"/>
+                <constraint firstItem="rjW-uT-DMi" firstAttribute="top" secondItem="Zg5-uu-R0k" secondAttribute="bottom" constant="24" id="lNf-3s-Zaw"/>
+                <constraint firstItem="Qte-O7-euN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="vJh-GN-XmU"/>
+            </constraints>
+            <point key="canvasLocation" x="262" y="306"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

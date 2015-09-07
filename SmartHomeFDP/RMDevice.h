@@ -13,6 +13,8 @@
 @property(strong,nonatomic)NSString *type;
 @property(strong,nonatomic)NSString *name;
 @property(strong,nonatomic)NSString *mac;
+//@property(strong,nonatomic)NSNumber *state;
+
 @property(strong,nonatomic)NSMutableArray *RMButtonArray;
 
 +(instancetype) itemDevice;

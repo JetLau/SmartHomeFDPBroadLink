@@ -10,6 +10,7 @@
 #import "ProgressHUD.h"
 #import "RootController.h"
 #import "SmartHomeAPIs.h"
+#import "RegisterViewController.h"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface LoginViewController ()
@@ -73,15 +74,22 @@
     dispatch_async(kBgQueue, ^{
         NSDictionary *status = [SmartHomeAPIs MobileLogin:username password:password];
         NSString *loginSuccess = [[status objectForKey:@"jsonMap"] objectForKey:@"result"];
-//        NSString *loginSuccess = @"success";
+        //loginSuccess = @"success";
         if ([loginSuccess isEqualToString:@"success"])//登录成功
         {
+            NSDictionary *userDic = [status objectForKey:@"jsonMap"];
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            [userDefaults setObject:username forKey:@"username"];
+            [userDefaults setObject:[userDic objectForKey:@"userId"] forKey:@"userId"];
+            [userDefaults setObject:[userDic objectForKey:@"username"] forKey:@"username"];
             [userDefaults setObject:password forKey:@"password"];
-
+            [userDefaults setObject:[userDic objectForKey:@"phone"] forKey:@"phone"];
+            [userDefaults setObject:[userDic objectForKey:@"gender"] forKey:@"gender"];
+            [userDefaults setObject:[userDic objectForKey:@"address"] forKey:@"address"];
+            [userDefaults setObject:[userDic objectForKey:@"addressName"] forKey:@"addressName"];
+            [userDefaults setObject:[userDic objectForKey:@"role_id"] forKey:@"roleId"];
+            
             [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"登录成功" waitUntilDone:YES];
-            [self performSelectorOnMainThread:@selector(switchNextViewController) withObject:nil waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(switchNextViewController:) withObject:[userDefaults objectForKey:@"roleId"] waitUntilDone:YES];
             return ;
         }
         else//登录出错
@@ -91,6 +99,15 @@
         }
     });
 
+}
+
+- (IBAction)registerNewUser:(UIButton *)sender {
+    RegisterViewController *registerVC = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:registerVC];
+    [nav.navigationBar performSelector:@selector(setBarTintColor:) withObject:[UIColor colorWithRed:130/255.0 green:206/255.0 blue:59/255.0 alpha:1]];
+
+    [registerVC.navigationItem setTitle:@"注册新用户"];
+    [self.view.window.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
 - (void) successWithMessage:(NSString *)message {
@@ -103,9 +120,14 @@
     [ProgressHUD showError:message];
 }
 
-- (void)switchNextViewController
+- (void)switchNextViewController:(NSString *)roleId
 {
     RootController *rootController = (RootController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    [rootController switchToMainTabBarView];
+    int id = [roleId intValue];
+    if (id == 4) {
+        [rootController switchToMainTabBarView];
+    }else {
+        [rootController switchToManagerView];
+    }
 }
 @end

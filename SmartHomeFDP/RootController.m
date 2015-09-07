@@ -10,11 +10,13 @@
 #import "LoginViewController.h"
 #import "MainTabBarViewController.h"
 #import "SmartHomeAPIs.h"
-
+#import "NavigationViewController.h"
+#import "MHomeViewController.h"
 @interface RootController ()
 
 @property(nonatomic, strong) LoginViewController *loginViewController;
 @property(nonatomic, strong) MainTabBarViewController *mainTabBarViewController;
+@property(nonatomic, strong) NavigationViewController *navigationViewController;
 
 @end
 
@@ -41,10 +43,10 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *userName = [userDefaults stringForKey:@"username"];
     NSString *password = [userDefaults stringForKey:@"password"];
+    NSString *roleId = [userDefaults stringForKey:@"roleId"];
     //[userDefaults setObject:password forKey:@"password"];
-    if (!(userName == nil) && !(password == nil)) {
-        self.mainTabBarViewController = [[MainTabBarViewController alloc] init];
-        [self.view addSubview:self.mainTabBarViewController.view];
+    if (!(roleId == nil)) {
+        [self switchNextViewController:roleId];
     } else {
         self.loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
         [self.view addSubview:self.loginViewController.view];
@@ -62,6 +64,16 @@
     [self.view addSubview:self.mainTabBarViewController.view];
 }
 
+- (void)switchToManagerView
+{
+    [self.loginViewController.view removeFromSuperview];
+    self.loginViewController = nil;
+    self.navigationViewController = [[NavigationViewController alloc] initWithRootViewController:[[MHomeViewController alloc] init]];
+    [self.view addSubview:self.navigationViewController.view];
+    
+    
+}
+
 - (void)switchToLoginView
 {
     [self.mainTabBarViewController.view removeFromSuperview];
@@ -71,5 +83,13 @@
     [self.view addSubview:self.loginViewController.view];
 }
 
-
+- (void)switchNextViewController:(NSString*)roleId
+{
+    int id = [roleId intValue];
+    if (id == 4) {
+        [self switchToMainTabBarView];
+    }else {
+        [self switchToManagerView];
+    }
+}
 @end

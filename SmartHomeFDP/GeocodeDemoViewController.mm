@@ -196,6 +196,10 @@
     isGeoSearch = false;
     CLLocationCoordinate2D pt = (CLLocationCoordinate2D){0, 0};
     pt = (CLLocationCoordinate2D){lat, lon};
+    //转换GPS坐标至百度坐标
+    NSDictionary *GPSDic = BMKConvertBaiduCoorFrom(pt,BMK_COORDTYPE_GPS);
+    pt = BMKCoorDictionaryDecode(GPSDic);
+    
     BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
     reverseGeocodeSearchOption.reverseGeoPoint = pt;
     BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];

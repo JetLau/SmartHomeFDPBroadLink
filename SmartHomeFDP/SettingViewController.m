@@ -123,6 +123,12 @@
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
     [userDefaults removeObjectForKey:@"username"];
     [userDefaults removeObjectForKey:@"password"];
+    [userDefaults removeObjectForKey:@"gender"];
+    [userDefaults removeObjectForKey:@"phone"];
+    [userDefaults removeObjectForKey:@"address"];
+    [userDefaults removeObjectForKey:@"roleId"];
+    [userDefaults removeObjectForKey:@"addressName"];
+    
     
     RootController *rootController=(RootController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     [rootController switchToLoginView];
@@ -131,40 +137,40 @@
 -(void)downloadDevices
 {
     //下载TCP设备列表
-    dispatch_async(kBgQueue,
-                   ^{
-                       NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-                       NSString *username=[defaults objectForKey:@"username"];
-                       
-                       NSDictionary *jsonDic=[SmartHomeAPIs GetTCPDeviceList:username];
-                       if(jsonDic==nil)
-                       {
-                           dispatch_async(dispatch_get_main_queue(), ^{
-                               [ProgressHUD showError:@"设备下载失败"];
-                           });
-                           return ;
-                       }
-                       NSDictionary *jsonMap=[jsonDic objectForKey:@"jsonMap"];
-                       
-                       if(jsonMap==nil)
-                       {
-                           dispatch_async(dispatch_get_main_queue(), ^{
-                               [ProgressHUD showError:@"设备下载失败"];
-                           });
-                           return;
-                       }
-                       NSArray *array=[jsonMap objectForKey:@"list"];
-                       
-                       TCPDeviceManager *tcpDeviceManager=[TCPDeviceManager createTCPDeviceManager];
-                       [tcpDeviceManager saveTCPDeviceInfoToFile:array];
-                       
-                       dispatch_async(dispatch_get_main_queue(), ^{
-                           
-                           UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:nil message:@"设备下载完成" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                           [alertView show];
-                       });
-                       
-                   });
+//    dispatch_async(kBgQueue,
+//                   ^{
+//                       NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+//                       NSString *username=[defaults objectForKey:@"username"];
+//                       
+//                       NSDictionary *jsonDic=[SmartHomeAPIs GetTCPDeviceList:username];
+//                       if(jsonDic==nil)
+//                       {
+//                           dispatch_async(dispatch_get_main_queue(), ^{
+//                               [ProgressHUD showError:@"设备下载失败"];
+//                           });
+//                           return ;
+//                       }
+//                       NSDictionary *jsonMap=[jsonDic objectForKey:@"jsonMap"];
+//                       
+//                       if(jsonMap==nil)
+//                       {
+//                           dispatch_async(dispatch_get_main_queue(), ^{
+//                               [ProgressHUD showError:@"设备下载失败"];
+//                           });
+//                           return;
+//                       }
+//                       NSArray *array=[jsonMap objectForKey:@"list"];
+//                       
+//                       TCPDeviceManager *tcpDeviceManager=[TCPDeviceManager createTCPDeviceManager];
+//                       [tcpDeviceManager saveTCPDeviceInfoToFile:array];
+//                       
+//                       dispatch_async(dispatch_get_main_queue(), ^{
+//                           
+//                           UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:nil message:@"设备下载完成" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                           [alertView show];
+//                       });
+//                       
+//                   });
     //下载遥控列表
     dispatch_async(kBgQueue,
                    ^{
@@ -190,7 +196,7 @@
                            return;
                        }
                        NSArray *array=[jsonMap objectForKey:@"result"];
-                       NSLog(@"remoteArray : %@",array);
+                       NSLog(@"remoteArray : %d",[array count]);
                        RMDeviceManager *rmDeviceManager = [RMDeviceManager createRMDeviceManager];
                        [rmDeviceManager saveRemoteListInfoToFile:array];
 

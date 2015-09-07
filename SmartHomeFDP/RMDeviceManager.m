@@ -113,7 +113,7 @@
     [self.RMDeviceArray addObject:deviceDic];
     
     [self.RMDeviceArray writeToFile:self.path atomically:YES];
-    
+    NSLog(@"self.path = %@",self.path);
     //返回这个device是第几项
     return [self getRMDeviceCount]-1;
 }
@@ -474,12 +474,12 @@
 {
     RMDevice *rmDevice=[RMDevice itemDevice];
     rmDevice.mac = [remote objectForKey:@"mac"];
-    NSString *remoteType = [remote objectForKey:@"remote_type"];
+    NSString *remoteType = [remote objectForKey:@"device_type"];
     NSMutableDictionary *btnDic;
     
     if ([remoteType isEqualToString:@"TV"]) {
         rmDevice.type=remoteType;
-        rmDevice.name=[remote objectForKey:@"remote_name"];
+        rmDevice.name=[remote objectForKey:@"device_name"];
         
         NSArray *remoteBtnArray = [remote objectForKey:@"buttons"];
         for (int i=0; i<7; i++) {

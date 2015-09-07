@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MStatisicViewController">
+            <connections>
+                <outlet property="addressSegment" destination="3vJ-8J-85z" id="YVl-ff-MXW"/>
+                <outlet property="addressTableView" destination="RiD-DW-56O" id="7UF-6H-ybz"/>
+                <outlet property="enquiryTypeSegment" destination="CYQ-Kd-Gy8" id="Xyp-P8-XiS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="UtV-XS-9aU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CYQ-Kd-Gy8">
+                    <rect key="frame" x="0.0" y="419" width="320" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="NZr-uc-Lb2"/>
+                        <constraint firstAttribute="height" constant="28" id="nUs-QL-txI"/>
+                    </constraints>
+                    <segments>
+                        <segment title="用户数目"/>
+                        <segment title="设备数目"/>
+                        <segment title="使用频率"/>
+                    </segments>
+                    <color key="tintColor" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcn-Na-eEG">
+                    <rect key="frame" x="26" y="499" width="269" height="45"/>
+                    <color key="backgroundColor" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Mtk-2H-D1K"/>
+                        <constraint firstAttribute="width" constant="269" id="zgO-t0-UvL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="查询">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="queryBtnClicked:" destination="-1" eventType="touchUpInside" id="P6C-FY-ZLy"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RiD-DW-56O">
+                    <rect key="frame" x="0.0" y="50" width="320" height="342"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Hde-kb-uJh"/>
+                        <outlet property="delegate" destination="-1" id="b98-Jr-W5U"/>
+                    </connections>
+                </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3vJ-8J-85z">
+                    <rect key="frame" x="0.0" y="8" width="320" height="29"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="Loy-kf-epW"/>
+                        <constraint firstAttribute="width" constant="320" id="h9O-lT-BhS"/>
+                    </constraints>
+                    <segments>
+                        <segment title="市"/>
+                        <segment title="区" enabled="NO"/>
+                        <segment title="街道" enabled="NO"/>
+                    </segments>
+                    <color key="tintColor" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dcn-Na-eEG" firstAttribute="top" secondItem="CYQ-Kd-Gy8" secondAttribute="bottom" constant="52" id="1kW-bb-vtC"/>
+                <constraint firstItem="dcn-Na-eEG" firstAttribute="top" secondItem="CYQ-Kd-Gy8" secondAttribute="bottom" constant="52" id="6cS-ct-UUS"/>
+                <constraint firstAttribute="trailing" secondItem="dcn-Na-eEG" secondAttribute="trailing" constant="25" id="Cxd-cD-0fJ"/>
+                <constraint firstItem="3vJ-8J-85z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="Pn5-97-8oC"/>
+                <constraint firstItem="CYQ-Kd-Gy8" firstAttribute="top" secondItem="RiD-DW-56O" secondAttribute="bottom" constant="27" id="Pts-LQ-tFg"/>
+                <constraint firstItem="dcn-Na-eEG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="26" id="Rp0-eU-zmX"/>
+                <constraint firstItem="CYQ-Kd-Gy8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sae-Kn-W0H"/>
+                <constraint firstItem="CYQ-Kd-Gy8" firstAttribute="top" secondItem="RiD-DW-56O" secondAttribute="bottom" constant="27" id="T9D-vQ-VWg"/>
+                <constraint firstAttribute="trailing" secondItem="RiD-DW-56O" secondAttribute="trailing" id="V9Z-n0-WeT"/>
+                <constraint firstAttribute="bottom" secondItem="dcn-Na-eEG" secondAttribute="bottom" constant="24" id="WRm-SB-AFM"/>
+                <constraint firstItem="RiD-DW-56O" firstAttribute="top" secondItem="3vJ-8J-85z" secondAttribute="bottom" constant="14" id="bPm-1U-WrH"/>
+                <constraint firstAttribute="trailing" secondItem="3vJ-8J-85z" secondAttribute="trailing" id="buT-g7-biX"/>
+                <constraint firstItem="3vJ-8J-85z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="egq-ZL-4UW"/>
+                <constraint firstItem="RiD-DW-56O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gjV-cg-xIv"/>
+                <constraint firstAttribute="trailing" secondItem="CYQ-Kd-Gy8" secondAttribute="trailing" id="rhR-CH-ky4"/>
+                <constraint firstItem="RiD-DW-56O" firstAttribute="top" secondItem="3vJ-8J-85z" secondAttribute="bottom" constant="14" id="uCc-QI-XsH"/>
+            </constraints>
+            <point key="canvasLocation" x="291" y="292"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

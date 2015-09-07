@@ -20,6 +20,8 @@ NSString *ipAddr;
 
 //1.2注销登录
 + (NSDictionary *)MobileLogout;
+//1.3 注册用户
++ (NSDictionary *)MobileRegister:(NSDictionary*)dic;
 
 //Remote
 //2.1 添加遥控
@@ -57,4 +59,17 @@ NSString *ipAddr;
 //6.获取gps数据
 + (NSDictionary *)GetGPSData:(int)num;
 + (NSDictionary *)GetOneDayGPSData:(NSString *)date;
+
+//7.管理用户接口
+//7.1 返回子地址列表
++ (NSDictionary *)GetChildAddressList:(NSString *)address;
+
+//7.2 按区域统计用户数目
++ (NSDictionary *)GetRegionUserNumber:(NSString*)address;
+//7.3 按区域统计设备数目
++ (NSDictionary *)GetRegionDeviceNumber:(NSString *)address;
+//7.4 按区域统计设备使用次数
++ (NSDictionary *)GetRegionDeviceUseNumber:(NSString *)address;
+//7.5 获取中控列表
++ (NSDictionary *)GetControllerList:(NSString *)address;
 @end

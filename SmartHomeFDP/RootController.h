@@ -11,5 +11,7 @@
 
 - (void)switchToLoginView;
 - (void)switchToMainTabBarView;
+- (void)switchToManagerView;
+- (void)switchNextViewController:(NSString*)roleId;
 
 @end
