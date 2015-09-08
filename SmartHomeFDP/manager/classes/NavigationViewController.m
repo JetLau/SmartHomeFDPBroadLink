@@ -37,9 +37,9 @@
                                             highlightedImage:nil
                                                       action:^(REMenuItem *item) {
                                                           NSLog(@"Item: %@", item);
-                                                          if ([weakSelf.visibleViewController isKindOfClass:[MHomeViewController class]] ) {
-                                                              return;
-                                                          }
+//                                                          if ([weakSelf.visibleViewController isKindOfClass:[MHomeViewController class]] ) {
+//                                                              return;
+//                                                          }
                                                           MHomeViewController *controller = [[MHomeViewController alloc] initWithNibName:@"MHomeViewController" bundle:nil];
                                                           [weakSelf setViewControllers:@[controller] animated:NO];
                                                       }];
@@ -50,9 +50,9 @@
                                             highlightedImage:nil
                                                       action:^(REMenuItem *item) {
                                                           NSLog(@"Item: %@", item);
-                                                          if ([weakSelf.visibleViewController isKindOfClass:[MDeviceManageViewController class]] ) {
-                                                              return;
-                                                          }
+//                                                          if ([weakSelf.visibleViewController isKindOfClass:[MDeviceManageViewController class]] ) {
+//                                                              return;
+//                                                          }
                                                           
                                                           MDeviceManageViewController *controller = [[MDeviceManageViewController alloc] initWithNibName:@"MDeviceManageViewController" bundle:nil];
                                                           [weakSelf setViewControllers:@[controller] animated:NO];
@@ -64,9 +64,9 @@
                                                 highlightedImage:nil
                                                           action:^(REMenuItem *item) {
                                                               NSLog(@"Item: %@", item);
-                                                              if ([weakSelf.visibleViewController isKindOfClass:[MStatisicViewController class]] ) {
-                                                                  return;
-                                                              }
+//                                                              if ([weakSelf.visibleViewController isKindOfClass:[MStatisicViewController class]] ) {
+//                                                                  return;
+//                                                              }
                                                               
                                                               MStatisicViewController *controller = [[MStatisicViewController alloc] initWithNibName:@"MStatisicViewController" bundle:nil];
                                                               [weakSelf setViewControllers:@[controller] animated:NO];
@@ -79,9 +79,9 @@
                                                          action:^(REMenuItem *item) {
                                                              NSLog(@"Item: %@", item);
                                                              
-                                                             if ([weakSelf.visibleViewController isKindOfClass:[MSettingViewController class]] ) {
-                                                                 return;
-                                                             }
+//                                                             if ([weakSelf.visibleViewController isKindOfClass:[MSettingViewController class]] ) {
+//                                                                 return;
+//                                                             }
                                                              
                                                              MSettingViewController *controller = [[MSettingViewController alloc] initWithNibName:@"MSettingViewController" bundle:nil];
                                                              [weakSelf setViewControllers:@[controller] animated:NO];

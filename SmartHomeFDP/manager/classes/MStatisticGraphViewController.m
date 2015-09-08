@@ -40,18 +40,25 @@
         self.barChart.showChartBorder = YES;
         NSMutableArray *deviceName = [[NSMutableArray alloc] init];
         NSMutableArray *deviceUseNum = [[NSMutableArray alloc] init];
+        int max= 1;
+
         for (NSDictionary * dic in self.deviceUseNumList) {
             for(NSString *key in dic.allKeys){
                 [deviceName addObject:key];
                 [deviceUseNum addObject:[NSNumber numberWithInt:[[dic objectForKey:key] intValue]]];
+                if ([[dic objectForKey:key] intValue] > max) {
+                    max = [[dic objectForKey:key] intValue];
+                }
             }
             
         }
-        
-//        [deviceName addObject:@"111"];
-//        [deviceUseNum addObject:[NSNumber numberWithInt:5000]];
-
-        
+        if (max > 9) {
+            max = 9;
+        }else if (max == 4){
+            max = 3;
+        }
+        self.barChart.yLabelSum = max;
+        //self.barChart.showLabel = NO;
         [self.barChart setXLabels:deviceName];
         //       self.barChart.yLabels = @[@-10,@0,@10];
         [self.barChart setYValues:deviceUseNum];
@@ -59,7 +66,6 @@
         [self.barChart setStrokeColors:@[PNGreen,PNGreen,PNRed,PNGreen,PNGreen]];
         self.barChart.isGradientShow = YES;
         self.barChart.isShowNumbers = YES;
-        self.barChart.showLabel = NO;
 
         [self.barChart strokeChart];
         
@@ -77,16 +83,27 @@
         self.barChart.showChartBorder = YES;
         NSMutableArray *deviceName = [[NSMutableArray alloc] init];
         NSMutableArray *deviceNum = [[NSMutableArray alloc] init];
+        int max= 1;
         for (NSDictionary * dic in self.deviceNumList) {
             for(NSString *key in dic.allKeys){
                 [deviceName addObject:key];
                 [deviceNum addObject:[NSNumber numberWithInt:[[dic objectForKey:key] intValue]]];
+                if ([[dic objectForKey:key] intValue] > max) {
+                    max = [[dic objectForKey:key] intValue];
+                }
             }
             
         }
         
+        if (max > 9) {
+            max = 9;
+        }else if (max == 4){
+            max = 3;
+        }
+        self.barChart.yLabelSum = max;
+        //self.barChart.showLabel = NO;
+
         [self.barChart setXLabels:deviceName];
-        self.barChart.showLabel = NO;
         //       self.barChart.yLabels = @[@-10,@0,@10];
         [self.barChart setYValues:deviceNum];
         [self.barChart setStrokeColors:@[PNGreen,PNGreen,PNRed,PNGreen,PNGreen]];
@@ -128,7 +145,7 @@
         self.pieChart.delegate = self;
 
         UIView *legend = [self.pieChart getLegendWithMaxWidth:200];
-        [legend setFrame:CGRectMake(130, 250, legend.frame.size.width, legend.frame.size.height)];
+        [legend setFrame:CGRectMake(130, 223, legend.frame.size.width, legend.frame.size.height)];
         [self.view addSubview:legend];
         
         [self.view addSubview:self.pieChart];

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -52,9 +51,9 @@
                     </constraints>
                     <segments>
                         <segment title="已申请中控"/>
-                        <segment title="设备列表"/>
-                        <segment title="设备申请"/>
-                        <segment title="问题反馈"/>
+                        <segment title="设备列表" enabled="NO"/>
+                        <segment title="设备申请" enabled="NO"/>
+                        <segment title="问题反馈" enabled="NO"/>
                     </segments>
                     <color key="tintColor" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
