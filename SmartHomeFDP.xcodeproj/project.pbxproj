@@ -31,7 +31,6 @@
 		4725720D1A0E034C002B12DE /* AirConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4725720C1A0E034C002B12DE /* AirConditionViewController.xib */; };
 		47B19C921A0209B100FFA873 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B19C911A0209B100FFA873 /* main.m */; };
 		47B19C951A0209B100FFA873 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B19C941A0209B100FFA873 /* AppDelegate.m */; };
-		47B19C9D1A0209B100FFA873 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B19C9C1A0209B100FFA873 /* Images.xcassets */; };
 		47B19CA01A0209B100FFA873 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B19C9E1A0209B100FFA873 /* LaunchScreen.xib */; };
 		47B19CAC1A0209B100FFA873 /* SmartHomeFDPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B19CAB1A0209B100FFA873 /* SmartHomeFDPTests.m */; };
 		47B19CC61A0218FB00FFA873 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B19CC51A0218FB00FFA873 /* UIKit.framework */; };
@@ -118,6 +117,7 @@
 		601570601B9C2F0700FC24C1 /* TestMDeviceManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601570481B9C2F0700FC24C1 /* TestMDeviceManageViewController.xib */; };
 		601570611B9C2F0700FC24C1 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6015704A1B9C2F0700FC24C1 /* UserDetailViewController.m */; };
 		601570621B9C2F0700FC24C1 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6015704B1B9C2F0700FC24C1 /* UserDetailViewController.xib */; };
+		601570691B9FC7DC00FC24C1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 601570681B9FC7DC00FC24C1 /* Images.xcassets */; };
 		602A78321AD4BF6A00A77E84 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602A78301AD4BF6A00A77E84 /* LightViewController.m */; };
 		602A78331AD4BF6A00A77E84 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A78311AD4BF6A00A77E84 /* LightViewController.xib */; };
 		60421DD41A0E7421007E868D /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DBE1A0E7420007E868D /* MJArgument.m */; };
@@ -298,7 +298,6 @@
 		47B19C911A0209B100FFA873 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		47B19C931A0209B100FFA873 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		47B19C941A0209B100FFA873 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		47B19C9C1A0209B100FFA873 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		47B19C9F1A0209B100FFA873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		47B19CA51A0209B100FFA873 /* SmartHomeFDPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartHomeFDPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B19CAA1A0209B100FFA873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -377,7 +376,7 @@
 		60032F4E1A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOrChangeCustomBtnViewController.h; sourceTree = "<group>"; };
 		60032F4F1A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOrChangeCustomBtnViewController.m; sourceTree = "<group>"; };
 		60032F501A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddOrChangeCustomBtnViewController.xib; sourceTree = "<group>"; };
-		60156FC61B9C29D800FC24C1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		60156FC61B9C29D800FC24C1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		60156FC81B9C2E9200FC24C1 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		60156FC91B9C2E9200FC24C1 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		60156FCA1B9C2E9200FC24C1 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -432,6 +431,7 @@
 		601570491B9C2F0700FC24C1 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
 		6015704A1B9C2F0700FC24C1 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
 		6015704B1B9C2F0700FC24C1 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
+		601570681B9FC7DC00FC24C1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		602A782F1AD4BF6A00A77E84 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
 		602A78301AD4BF6A00A77E84 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
 		602A78311AD4BF6A00A77E84 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
@@ -730,6 +730,7 @@
 		47B19C8E1A0209B100FFA873 /* SmartHomeFDP */ = {
 			isa = PBXGroup;
 			children = (
+				601570681B9FC7DC00FC24C1 /* Images.xcassets */,
 				60156FD51B9C2EC000FC24C1 /* manager */,
 				60C7A26B1AEF21E7005314A5 /* SCRFTPRequest */,
 				60032F161A1AF1F600F07B8C /* APIS */,
@@ -744,7 +745,6 @@
 				60C01F4D1A087836002E3764 /* BroadLink */,
 				60C01F451A08781A002E3764 /* MSC */,
 				606C9B561A065879003BA6AD /* MainViewLists */,
-				47B19C9C1A0209B100FFA873 /* Images.xcassets */,
 				47B19C9E1A0209B100FFA873 /* LaunchScreen.xib */,
 				60C020091A0A3C67002E3764 /* images */,
 				47B19C8F1A0209B100FFA873 /* Supporting Files */,
@@ -1535,6 +1535,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601570691B9FC7DC00FC24C1 /* Images.xcassets in Resources */,
 				601570541B9C2F0700FC24C1 /* MSettingViewController.xib in Resources */,
 				60C01FDB1A09152E002E3764 /* ProgressHUD.bundle in Resources */,
 				601570621B9C2F0700FC24C1 /* UserDetailViewController.xib in Resources */,
@@ -1582,7 +1583,6 @@
 				60C020481A0A3C67002E3764 /* list_dark.png in Resources */,
 				60C0202E1A0A3C67002E3764 /* login_bg@2x.jpg in Resources */,
 				60156FC71B9C29D800FC24C1 /* Podfile in Resources */,
-				47B19C9D1A0209B100FFA873 /* Images.xcassets in Resources */,
 				47D5709A1A22CEF100646865 /* CustomCollectionViewCell.xib in Resources */,
 				6015705E1B9C2F0700FC24C1 /* OEMSQueryTableViewCell.xib in Resources */,
 				60032F3B1A1CB90A00F07B8C /* btn_close_press.png in Resources */,

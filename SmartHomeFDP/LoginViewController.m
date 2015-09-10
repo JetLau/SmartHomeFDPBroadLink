@@ -87,6 +87,16 @@
             [userDefaults setObject:[userDic objectForKey:@"address"] forKey:@"address"];
             [userDefaults setObject:[userDic objectForKey:@"addressName"] forKey:@"addressName"];
             [userDefaults setObject:[userDic objectForKey:@"role_id"] forKey:@"roleId"];
+            [userDefaults setObject:[NSString stringWithFormat:@"%@",[userDic objectForKey:@"qu"]] forKey:@"qu"];
+            
+            NSString *qu = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"qu"]];
+            if (qu==nil || [qu isEqualToString:@"(null)"])
+            {
+                qu = @"null";
+            }
+            NSLog(@"qu=%@",qu);
+            [SmartHomeAPIs SetQu:qu];
+            
             
             [self performSelectorOnMainThread:@selector(successWithMessage:) withObject:@"登录成功" waitUntilDone:YES];
             [self performSelectorOnMainThread:@selector(switchNextViewController:) withObject:[userDefaults objectForKey:@"roleId"] waitUntilDone:YES];

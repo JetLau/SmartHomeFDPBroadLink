@@ -15,7 +15,7 @@
     
     __weak IBOutlet UISegmentedControl *addressSegment;
     __weak IBOutlet UITableView *addressTableView;
-    __weak IBOutlet UISegmentedControl *enquiryTypeSegment;
+//__weak IBOutlet UISegmentedControl *enquiryTypeSegment;
 }
 
 
@@ -26,4 +26,6 @@
 //当前要查询的address
 @property (strong,nonatomic) NSString *address;
 
+//当前查询类型
+@property int SearchType;
 @end

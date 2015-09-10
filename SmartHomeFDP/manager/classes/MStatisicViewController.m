@@ -13,8 +13,11 @@
 #import "OEMSEnergyGraphViewController.h"
 #import "SmartHomeAPIs.h"
 #import "ProgressHUD.h"
-@interface MStatisicViewController ()<UITableViewDataSource, UITableViewDelegate>
+#import <YAScrollSegmentControl/YAScrollSegmentControl.h>
 
+@interface MStatisicViewController ()<UITableViewDataSource, UITableViewDelegate,YAScrollSegmentControlDelegate>
+
+@property (weak, nonatomic) IBOutlet YAScrollSegmentControl *enquirySegment;
 @end
 
 @implementation MStatisicViewController
@@ -33,6 +36,9 @@
     //
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(toggleMenu)];
    
+    
+    self.enquirySegment.buttons = @[@"用户数量", @"设备数量", @"设备使用次数", @"设备用户数量", @"控制方式"];
+    
     [addressSegment addTarget:self action:@selector(addressSegmentChangedValue:) forControlEvents:UIControlEventValueChanged];
     
     [addressTableView registerNib:[UINib nibWithNibName:@"OEMSQueryTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
@@ -67,6 +73,7 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"当前管理员权限不提供服务！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertView show];
     }
+    
     
 }
 
@@ -175,14 +182,14 @@
 }
 
 - (IBAction)queryBtnClicked:(UIButton *)sender {
-    NSLog(@"address=%@,type = %d",self.address,[enquiryTypeSegment selectedSegmentIndex]);
-    int type = [enquiryTypeSegment selectedSegmentIndex];
+//    NSLog(@"address=%@,type = %d",self.address,[enquiryTypeSegment selectedSegmentIndex]);
+//    int type = [enquiryTypeSegment selectedSegmentIndex];
     
     MStatisticGraphViewController *graphVCtrl = [[MStatisticGraphViewController alloc] initWithNibName:@"MStatisticGraphViewController" bundle:nil];
-    graphVCtrl.type =type;
+    graphVCtrl.type =self.SearchType;
     [ProgressHUD show:@"正在查询"];
     self.view.userInteractionEnabled = false;
-    if (type ==0) {
+    if (self.SearchType ==0) {
         dispatch_async(serverQueue, ^{
             NSDictionary *resultDic = [SmartHomeAPIs GetRegionUserNumber:self.address];
             if([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
@@ -206,7 +213,7 @@
             }
         });
         
-    }else if (type ==1) {
+    }else if (self.SearchType  ==1) {
 //        OEMSEnergyGraphViewController *egVctrl = [[OEMSEnergyGraphViewController alloc] initWithNibName:@"OEMSEnergyGraphViewController" bundle:nil];
 //        [egVctrl.navigationItem  setTitle:@"设备数量"];
 //        [self.navigationController pushViewController:egVctrl animated:YES];
@@ -217,7 +224,7 @@
             if([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [graphVCtrl.navigationItem  setTitle:@"设备数目"];
+                    [graphVCtrl.navigationItem  setTitle:@"设备数量"];
                     graphVCtrl.deviceNumList = [NSMutableArray arrayWithArray:[resultDic objectForKey:@"device_num"]];
                     [ProgressHUD showSuccess:@""];
                     self.view.userInteractionEnabled = true;
@@ -234,14 +241,14 @@
                 });
             }
         });
-    }else if (type ==2) {
+    }else if (self.SearchType  ==2) {
         
         dispatch_async(serverQueue, ^{
             NSDictionary *resultDic = [SmartHomeAPIs GetRegionDeviceUseNumber:self.address];
             if([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [graphVCtrl.navigationItem  setTitle:@"使用频率"];
+                    [graphVCtrl.navigationItem  setTitle:@"使用次数"];
                     [ProgressHUD showSuccess:@""];
                     self.view.userInteractionEnabled = true;
                     graphVCtrl.deviceUseNumList = [NSMutableArray arrayWithArray:[resultDic objectForKey:@"device_num"]];
@@ -253,13 +260,64 @@
             }else
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [ProgressHUD showError:@"使用频率获取失败，请检查网络！"];
+                    [ProgressHUD showError:@"使用次数获取失败，请检查网络！"];
                     self.view.userInteractionEnabled = true;
 
                 });
             }
         });
+    }else if (self.SearchType  ==3) {
+        
+        dispatch_async(serverQueue, ^{
+            NSDictionary *resultDic = [SmartHomeAPIs GetUserNumberListByDevice:self.address];
+            if([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [graphVCtrl.navigationItem  setTitle:@"设备用户数量"];
+                    [ProgressHUD showSuccess:@""];
+                    self.view.userInteractionEnabled = true;
+                    graphVCtrl.userNumByDevice = [NSMutableArray arrayWithArray:[resultDic objectForKey:@"user_num"]];
+                    [self.navigationController pushViewController:graphVCtrl animated:YES];
+                    
+                    
+                    
+                });
+            }else
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ProgressHUD showError:@"设备用户数量获取失败，请检查网络！"];
+                    self.view.userInteractionEnabled = true;
+                    
+                });
+            }
+        });
+    }else if (self.SearchType  ==4) {
+        
+        dispatch_async(serverQueue, ^{
+            NSDictionary *resultDic = [SmartHomeAPIs GetOperateNumberListByMethod:self.address];
+            if([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [graphVCtrl.navigationItem  setTitle:@"控制方式统计"];
+                    [ProgressHUD showSuccess:@""];
+                    self.view.userInteractionEnabled = true;
+                    graphVCtrl.operateNumByMethod = [NSMutableArray arrayWithArray:[resultDic objectForKey:@"operator_num"]];
+                    [self.navigationController pushViewController:graphVCtrl animated:YES];
+                    
+                    
+                    
+                });
+            }else
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ProgressHUD showError:@"控制方式数据获取失败，请检查网络！"];
+                    self.view.userInteractionEnabled = true;
+                    
+                });
+            }
+        });
     }
+
 
 }
 
@@ -286,4 +344,11 @@
         }
     });
 }
+
+- (void)didSelectItemAtIndex:(NSInteger)index
+{
+    self.SearchType = index;
+    //NSLog(@"Button selected at index: %lu", (long)index);
+}
+
 @end

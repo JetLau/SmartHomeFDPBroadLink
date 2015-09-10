@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 
 NSString *ipAddr;
-
+NSString *userQu;
 @interface SmartHomeAPIs : NSObject
-
+//配置服务器ip
 + (void)setIpAddr:(NSString *)setting;
 +(NSString *)GetIPAddress;
+
+//获取用户所在区
++ (void)SetQu:(NSString *)currentQu;
++(NSString *)GetQu;
 
 //1.1用户帐户登录
 + (NSDictionary *)MobileLogin:(NSString *)email password:(NSString *)password;
@@ -22,7 +26,8 @@ NSString *ipAddr;
 + (NSDictionary *)MobileLogout;
 //1.3 注册用户
 + (NSDictionary *)MobileRegister:(NSDictionary*)dic;
-
+//1.4 修改用户信息
++ (NSDictionary *)ChangeUserDetail:(NSDictionary*)dic;
 //Remote
 //2.1 添加遥控
 + (NSString *)AddRemote:(NSMutableDictionary*)dic;
@@ -72,4 +77,9 @@ NSString *ipAddr;
 + (NSDictionary *)GetRegionDeviceUseNumber:(NSString *)address;
 //7.5 获取中控列表
 + (NSDictionary *)GetControllerList:(NSString *)address;
+//7.6 按设备种类统计用户数量
++ (NSDictionary *)GetUserNumberListByDevice:(NSString *)address;
+//7.7 按控制方式统计使用次数
++ (NSDictionary *)GetOperateNumberListByMethod:(NSString *)address;
+
 @end

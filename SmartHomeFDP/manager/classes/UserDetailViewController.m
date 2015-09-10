@@ -8,6 +8,7 @@
 
 #import "UserDetailViewController.h"
 #import "ProgressHUD.h"
+#import "SmartHomeAPIs.h"
 @interface UserDetailViewController ()
 
 @end
@@ -63,33 +64,34 @@
 }
 
 - (IBAction)changeBtnClicked:(UIButton *)sender {
-//    UserInfo *changedUser = [[UserInfo alloc] init];
-//    [changedUser setUsername:[NSString stringWithString:username.text]];
-//    [changedUser setPassword:[NSString stringWithString:password.text]];
-//    [changedUser setPhone:[NSString stringWithString:phone.text]];
-    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:username.text forKey:@"username"];
-    [userDefaults setObject:password.text forKey:@"password"];
-    [userDefaults setObject:phone.text forKey:@"phone"];
+    
+    UserInfo *changedUser = [[UserInfo alloc] init];
+    [changedUser setUsername:[NSString stringWithString:username.text]];
+    [changedUser setPassword:[NSString stringWithString:password.text]];
+    [changedUser setPhone:[NSString stringWithString:phone.text]];
+    [changedUser setAddress:[userDefaults objectForKey:@"address"]];
 
     if (genderSegment.selectedSegmentIndex == 0) {
-        [userDefaults setObject:@"男" forKey:@"gender"];
+        [changedUser setGender:@"男"];
 
     }else{
-        [userDefaults setObject:@"女" forKey:@"gender"];
+        [changedUser setGender:@"女"];
     }
-    BOOL isInfoRight = TRUE;//[changedUser verifyInfo:[NSString stringWithString:[GVUserDefaults standardUserDefaults].password]];
+    BOOL isInfoRight = [changedUser verifyInfo:[NSString stringWithString:changedUser.password]];
     if (isInfoRight== TRUE) {
+        NSMutableDictionary *changeDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:[userDefaults objectForKey:@"userId"],@"userId",changedUser.username,@"username",changedUser.gender,@"gender",changedUser.phone,@"phone",[userDefaults objectForKey:@"password"],@"old_password",changedUser.password, @"new_password", nil];
+        
         [ProgressHUD show:@"正在修改"];
         self.view.userInteractionEnabled = false;
         
         dispatch_async(serverQueue, ^{
-           // NSDictionary *resultDic = [ShareBarrierFreeAPIS ChangeUserDetail:changedUser];
-            //if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"]) {
-            if(TRUE){
-                //self.user = changedUser;
-                //[self.user saveUserInfo:[[resultDic objectForKey:@"user_id"] integerValue]];
+            NSDictionary *resultDic = [SmartHomeAPIs ChangeUserDetail:changeDic];
+            if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"]) {
+                [userDefaults setObject:username.text forKey:@"username"];
+                [userDefaults setObject:password.text forKey:@"password"];
+                [userDefaults setObject:phone.text forKey:@"phone"];
+                [userDefaults setObject:changedUser.gender forKey:@"gender"];
                 [self performSelectorOnMainThread:@selector(changeSuccessd:) withObject:@"修改成功" waitUntilDone:YES];
                 // [self performSelectorOnMainThread:@selector(switchNextViewController) withObject:nil waitUntilDone:YES];
                 
@@ -102,7 +104,7 @@
     }
     
     
-    
+
 }
 
 - (IBAction)moveInfoView:(UITextField *)sender {

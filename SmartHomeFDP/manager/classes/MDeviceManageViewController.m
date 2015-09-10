@@ -229,8 +229,6 @@
             }
         });
     }else if (type ==1) {
-        [enqueryVCtl.navigationItem  setTitle:@"设备列表"];
-    }else if (type ==2) {
         [enqueryVCtl.navigationItem  setTitle:@"设备申请"];
     }else{
         [enqueryVCtl.navigationItem  setTitle:@"用户反馈"];

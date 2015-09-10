@@ -24,5 +24,7 @@
 @property (strong,nonatomic) NSMutableArray *userNumList;
 @property (strong,nonatomic) NSMutableArray *deviceNumList;
 @property (strong,nonatomic) NSMutableArray *deviceUseNumList;
+@property (strong,nonatomic) NSMutableArray *userNumByDevice;
+@property (strong,nonatomic) NSMutableArray *operateNumByMethod;
 
 @end

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -9,7 +8,7 @@
             <connections>
                 <outlet property="addressSegment" destination="3vJ-8J-85z" id="YVl-ff-MXW"/>
                 <outlet property="addressTableView" destination="RiD-DW-56O" id="7UF-6H-ybz"/>
-                <outlet property="enquiryTypeSegment" destination="CYQ-Kd-Gy8" id="Xyp-P8-XiS"/>
+                <outlet property="enquirySegment" destination="mvc-fO-i4T" id="dgG-k2-fLL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="UtV-XS-9aU"/>
             </connections>
         </placeholder>
@@ -18,19 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CYQ-Kd-Gy8">
-                    <rect key="frame" x="0.0" y="419" width="320" height="29"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="320" id="NZr-uc-Lb2"/>
-                        <constraint firstAttribute="height" constant="28" id="nUs-QL-txI"/>
-                    </constraints>
-                    <segments>
-                        <segment title="用户数目"/>
-                        <segment title="设备数目"/>
-                        <segment title="使用频率"/>
-                    </segments>
-                    <color key="tintColor" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
-                </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcn-Na-eEG">
                     <rect key="frame" x="26" y="499" width="269" height="45"/>
                     <color key="backgroundColor" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -69,29 +55,57 @@
                     </segments>
                     <color key="tintColor" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvc-fO-i4T" customClass="YAScrollSegmentControl">
+                    <rect key="frame" x="0.0" y="420" width="320" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="b0s-KR-uvm"/>
+                        <constraint firstAttribute="width" constant="320" id="e2j-LA-oMO"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                            <color key="value" red="0.50980392159999999" green="0.80784313730000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="buttonHighlightColor">
+                            <color key="value" red="0.0" green="0.83529411760000005" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="buttonSelectedColor">
+                            <color key="value" red="0.0" green="0.83529411760000005" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="image" keyPath="buttonBackgroundImage" value="segmentbackground"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="buttonHighlightedBackgroundImage" value="segmentbackgroundSelected"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="buttonSelectedBackgroundImage" value="segmentbackgroundSelected"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="pjc-KA-D6I"/>
+                    </connections>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="dcn-Na-eEG" firstAttribute="top" secondItem="CYQ-Kd-Gy8" secondAttribute="bottom" constant="52" id="1kW-bb-vtC"/>
-                <constraint firstItem="dcn-Na-eEG" firstAttribute="top" secondItem="CYQ-Kd-Gy8" secondAttribute="bottom" constant="52" id="6cS-ct-UUS"/>
+                <constraint firstItem="mvc-fO-i4T" firstAttribute="top" secondItem="RiD-DW-56O" secondAttribute="bottom" constant="28" id="7bt-YH-XGJ"/>
                 <constraint firstAttribute="trailing" secondItem="dcn-Na-eEG" secondAttribute="trailing" constant="25" id="Cxd-cD-0fJ"/>
                 <constraint firstItem="3vJ-8J-85z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="Pn5-97-8oC"/>
-                <constraint firstItem="CYQ-Kd-Gy8" firstAttribute="top" secondItem="RiD-DW-56O" secondAttribute="bottom" constant="27" id="Pts-LQ-tFg"/>
+                <constraint firstItem="mvc-fO-i4T" firstAttribute="top" secondItem="RiD-DW-56O" secondAttribute="bottom" constant="28" id="Qdb-Cz-1IG"/>
                 <constraint firstItem="dcn-Na-eEG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="26" id="Rp0-eU-zmX"/>
-                <constraint firstItem="CYQ-Kd-Gy8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sae-Kn-W0H"/>
-                <constraint firstItem="CYQ-Kd-Gy8" firstAttribute="top" secondItem="RiD-DW-56O" secondAttribute="bottom" constant="27" id="T9D-vQ-VWg"/>
                 <constraint firstAttribute="trailing" secondItem="RiD-DW-56O" secondAttribute="trailing" id="V9Z-n0-WeT"/>
                 <constraint firstAttribute="bottom" secondItem="dcn-Na-eEG" secondAttribute="bottom" constant="24" id="WRm-SB-AFM"/>
+                <constraint firstItem="mvc-fO-i4T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="X4g-xD-wT7"/>
                 <constraint firstItem="RiD-DW-56O" firstAttribute="top" secondItem="3vJ-8J-85z" secondAttribute="bottom" constant="14" id="bPm-1U-WrH"/>
                 <constraint firstAttribute="trailing" secondItem="3vJ-8J-85z" secondAttribute="trailing" id="buT-g7-biX"/>
                 <constraint firstItem="3vJ-8J-85z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="egq-ZL-4UW"/>
                 <constraint firstItem="RiD-DW-56O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gjV-cg-xIv"/>
-                <constraint firstAttribute="trailing" secondItem="CYQ-Kd-Gy8" secondAttribute="trailing" id="rhR-CH-ky4"/>
+                <constraint firstItem="dcn-Na-eEG" firstAttribute="top" secondItem="mvc-fO-i4T" secondAttribute="bottom" constant="49" id="jnZ-s0-wJi"/>
                 <constraint firstItem="RiD-DW-56O" firstAttribute="top" secondItem="3vJ-8J-85z" secondAttribute="bottom" constant="14" id="uCc-QI-XsH"/>
+                <constraint firstAttribute="trailing" secondItem="mvc-fO-i4T" secondAttribute="trailing" id="yMP-md-Ae1"/>
             </constraints>
             <point key="canvasLocation" x="291" y="292"/>
         </view>
     </objects>
+    <resources>
+        <image name="segmentbackground" width="5" height="40"/>
+        <image name="segmentbackgroundSelected" width="5" height="40"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
