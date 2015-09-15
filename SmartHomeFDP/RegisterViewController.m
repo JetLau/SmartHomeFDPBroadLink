@@ -58,13 +58,16 @@
     }else if([genderSegment selectedSegmentIndex] == 1) {
         self.user.gender = @"女";
     }
+    if (self.quNumber == nil) {
+        self.quNumber = @"null";
+    }
     BOOL isInfoRight = [self.user verifyInfo:[NSString stringWithString:verifyPassword.text]];
     if (isInfoRight== TRUE) {
         [ProgressHUD show:@"正在注册"];
         self.view.userInteractionEnabled = false;
         NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:self.user.username,@"username",self.user.password,@"password",self.user.address,@"address",self.user.gender,@"gender",@"4",@"roleId",self.user.phone,@"phone",nil];
                 dispatch_async(serverQueue, ^{
-                    NSDictionary *resultDic = [SmartHomeAPIs MobileRegister:dic];
+                    NSDictionary *resultDic = [SmartHomeAPIs MobileRegister:dic andQuNum:self.quNumber];
                     if ([[resultDic objectForKey:@"result"] isEqualToString:@"success"]) {
         
                         [self.user setRoleId:[[resultDic objectForKey:@"roleId"] integerValue]];
@@ -241,7 +244,7 @@
         
         [self getChildAddressList:[[self.district objectAtIndex:indexPath.row] objectForKey:@"address_id"] andRank:@"street"];
         self.address = [[self.district objectAtIndex:indexPath.row] objectForKey:@"address_id"];
-        
+        self.quNumber = self.address;
         
     } else {
         [addressSegment setTitle:[[self.street objectAtIndex:indexPath.row] objectForKey:@"address_name"] forSegmentAtIndex:2];

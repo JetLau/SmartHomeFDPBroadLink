@@ -25,7 +25,7 @@ NSString *userQu;
 //1.2注销登录
 + (NSDictionary *)MobileLogout;
 //1.3 注册用户
-+ (NSDictionary *)MobileRegister:(NSDictionary*)dic;
++ (NSDictionary *)MobileRegister:(NSDictionary*)dic andQuNum:(NSString*)quNum;
 //1.4 修改用户信息
 + (NSDictionary *)ChangeUserDetail:(NSDictionary*)dic;
 //Remote

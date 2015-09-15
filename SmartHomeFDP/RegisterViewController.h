@@ -33,4 +33,6 @@
 
 //当前的address
 @property (strong,nonatomic) NSString *address;
+//当前的区number
+@property (strong,nonatomic) NSString *quNumber;
 @end

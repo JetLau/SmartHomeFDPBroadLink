@@ -709,7 +709,6 @@
 				60BBC6DB1A343BB60023906B /* Settings.bundle */,
 				60BBC6D01A2FFFD30023906B /* Default-568h@2x.png */,
 				47B19C8E1A0209B100FFA873 /* SmartHomeFDP */,
-				60C01F801A08C486002E3764 /* unuse */,
 				47B19CA81A0209B100FFA873 /* SmartHomeFDPTests */,
 				47B19C8D1A0209B100FFA873 /* Products */,
 				60C01F361A0873BF002E3764 /* FrameWorks */,
@@ -730,15 +729,16 @@
 		47B19C8E1A0209B100FFA873 /* SmartHomeFDP */ = {
 			isa = PBXGroup;
 			children = (
+				47B19C931A0209B100FFA873 /* AppDelegate.h */,
+				47B19C941A0209B100FFA873 /* AppDelegate.m */,
+				60C01FDD1A09AFBD002E3764 /* RootController.h */,
+				60C01FDE1A09AFBD002E3764 /* RootController.m */,
+				60C01F8B1A0903D4002E3764 /* Login */,
 				601570681B9FC7DC00FC24C1 /* Images.xcassets */,
 				60156FD51B9C2EC000FC24C1 /* manager */,
 				60C7A26B1AEF21E7005314A5 /* SCRFTPRequest */,
 				60032F161A1AF1F600F07B8C /* APIS */,
 				60032EF91A1A105400F07B8C /* AFNetworking */,
-				47B19C931A0209B100FFA873 /* AppDelegate.h */,
-				47B19C941A0209B100FFA873 /* AppDelegate.m */,
-				60C01FDD1A09AFBD002E3764 /* RootController.h */,
-				60C01FDE1A09AFBD002E3764 /* RootController.m */,
 				60421DBC1A0E7420007E868D /* MJExtension */,
 				60C01FD71A09152E002E3764 /* ProgressHUD */,
 				60C01F811A08F181002E3764 /* CustomCell */,
@@ -1069,7 +1069,6 @@
 		606C9B561A065879003BA6AD /* MainViewLists */ = {
 			isa = PBXGroup;
 			children = (
-				60C01F8B1A0903D4002E3764 /* Login */,
 				47B19CB51A020AA800FFA873 /* MainTabBarView */,
 				60C01F2C1A072375002E3764 /* HomeView */,
 				60C01F2D1A072384002E3764 /* AddDeviceView */,
@@ -1259,14 +1258,6 @@
 				470DACFA1A1F4E95003A9EE8 /* VoiceCommandRecognizer.m */,
 			);
 			name = VoiceView;
-			sourceTree = "<group>";
-		};
-		60C01F801A08C486002E3764 /* unuse */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = unuse;
-			path = SmartHomeFDP;
 			sourceTree = "<group>";
 		};
 		60C01F811A08F181002E3764 /* CustomCell */ = {

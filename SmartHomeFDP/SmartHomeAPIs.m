@@ -10,7 +10,6 @@
 #import "JSONKit.h"
 #import "AFHTTPRequestOperationManager.h"
 //#define ipAddr @"218.193.130.166"
-//#define ipAddr @"192.168.0.7:8080"
 
 @implementation SmartHomeAPIs
 //配置服务器ip
@@ -39,7 +38,7 @@
     return json;
 }
 
-//1.1
+//1.1用户帐户登录
 + (NSDictionary *)MobileLogin:(NSString *)username password:(NSString *)password
 {
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
@@ -79,12 +78,12 @@
         return nil;
 }
 //1.3 注册用户
-+ (NSDictionary *)MobileRegister:(NSDictionary*)dic
++ (NSDictionary *)MobileRegister:(NSDictionary*)dic andQuNum:(NSString*)quNum
 {
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
 
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/user/user_register.action?qu=%@&&requestStr=%@",ipAddr,@"null",josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/user/user_register.action?qu=%@&&requestStr=%@",ipAddr,quNum,josnString];
     NSLog(@"%@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;

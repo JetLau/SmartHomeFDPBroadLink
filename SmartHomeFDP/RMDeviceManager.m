@@ -84,6 +84,10 @@
         else
         {
             self.RMDeviceArray=[[NSMutableArray alloc]initWithContentsOfFile:self.path];
+            if (self.RMDeviceArray == nil) {
+                [self createRMDeviceInfoPlist];
+                self.RMDeviceArray=[[NSMutableArray alloc]init];
+            }
         }
     }
     
@@ -109,10 +113,9 @@
         [rmDeviceArray addObject:rmDeviceDic];
     }
     [deviceDic setValue:rmDeviceArray forKey:@"buttonArray"];
-    //NSLog(@"deviceDic = %@",deviceDic);
+    //NSLog(@"self.RMDeviceArray = %@",self.RMDeviceArray);
     [self.RMDeviceArray addObject:deviceDic];
     
-    [self.RMDeviceArray writeToFile:self.path atomically:YES];
     NSLog(@"self.path = %@",self.path);
     //返回这个device是第几项
     return [self getRMDeviceCount]-1;
@@ -615,5 +618,4 @@
     NSLog(@"%@ add to plist",remoteType);
     [self addRMDeviceInfoIntoFile:rmDevice];
 }
-
 @end
