@@ -50,8 +50,9 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-    [rmDeviceManager initRMDeviceManage];
+    RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
+    //[rmDeviceManager initRMDeviceManage];
+    //NSLog(@"rmDeviceManager.RMDeviceArray = %@",rmDeviceManager.RMDeviceArray);
     NSDictionary *dicDevices=[rmDeviceManager.RMDeviceArray objectAtIndex:_rmDeviceIndex];
     [self.navigationItem setTitle:[dicDevices objectForKey:@"name"]];
     //NSLog(@"plist中第 %d 项",_rmDeviceIndex);
@@ -65,8 +66,8 @@
 
 -(int)addDevice
 {
-    RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-    [rmDeviceManager initRMDeviceManage];
+    RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
+    //[rmDeviceManager initRMDeviceManage];
     
     RMDevice *rmDevice=[RMDevice itemDevice];
     rmDevice.mac = _info.mac;

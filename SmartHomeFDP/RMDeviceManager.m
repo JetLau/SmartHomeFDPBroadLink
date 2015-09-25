@@ -88,6 +88,7 @@
                 [self createRMDeviceInfoPlist];
                 self.RMDeviceArray=[[NSMutableArray alloc]init];
             }
+            
         }
     }
     
@@ -115,7 +116,8 @@
     [deviceDic setValue:rmDeviceArray forKey:@"buttonArray"];
     //NSLog(@"self.RMDeviceArray = %@",self.RMDeviceArray);
     [self.RMDeviceArray addObject:deviceDic];
-    
+    [self.RMDeviceArray writeToFile:self.path atomically:YES];
+    //NSLog(@"RMDeviceArray = %@",self.RMDeviceArray);
     NSLog(@"self.path = %@",self.path);
     //返回这个device是第几项
     return [self getRMDeviceCount]-1;
@@ -385,6 +387,27 @@
     NSArray *buttonArray=[deviceDic objectForKey:@"buttonArray"];
     return buttonArray;
 }
+-(NSMutableArray *) getVoiceList
+{
+    if (self.RMDeviceArray == nil || [self.RMDeviceArray count] == 0) {
+        return nil;
+    }else{
+        NSMutableArray *voicelist = [[NSMutableArray alloc] init];
+        for (NSDictionary *dic in self.RMDeviceArray) {
+            NSArray *btnArray = [dic objectForKey:@"buttonArray"];
+            for (NSDictionary *btnDic in btnArray) {
+                if (![[btnDic objectForKey:@"buttonInfo"] isEqualToString:@""]) {
+                    [voicelist addObject:[btnDic objectForKey:@"buttonInfo"]];
+                }
+            }
+        }
+        if([voicelist count] == 0){
+            return nil;
+        }else{
+            return voicelist;
+        }
+    }
+}
 
 -(void)deleteCustomBtn:(int)rmDeviceIndex btnId:(int)btnId
 {
@@ -505,7 +528,7 @@
         
     } else if([remoteType isEqualToString:@"AirCondition"]){
         rmDevice.type=remoteType;
-        rmDevice.name=[remote objectForKey:@"remote_name"];
+        rmDevice.name=[remote objectForKey:@"device_name"];
         
         NSArray *remoteBtnArray = [remote objectForKey:@"buttons"];
         for (int i=0; i<3; i++) {
@@ -527,7 +550,7 @@
         }
     }else if([remoteType isEqualToString:@"Curtain"]){
         rmDevice.type=remoteType;
-        rmDevice.name=[remote objectForKey:@"remote_name"];
+        rmDevice.name=[remote objectForKey:@"device_name"];
         
         NSArray *remoteBtnArray = [remote objectForKey:@"buttons"];
         for (int i=0; i<3; i++) {
@@ -549,7 +572,7 @@
         
     }else if([remoteType isEqualToString:@"Projector"]){
         rmDevice.type=remoteType;
-        rmDevice.name=[remote objectForKey:@"remote_name"];
+        rmDevice.name=[remote objectForKey:@"device_name"];
         
         NSArray *remoteBtnArray = [remote objectForKey:@"buttons"];
         for (int i=0; i<2; i++) {
@@ -572,7 +595,7 @@
         
     }else if([remoteType isEqualToString:@"Light"]){
         rmDevice.type=remoteType;
-        rmDevice.name=[remote objectForKey:@"remote_name"];
+        rmDevice.name=[remote objectForKey:@"device_name"];
         
         NSArray *remoteBtnArray = [remote objectForKey:@"buttons"];
         for (int i=0; i<2; i++) {
@@ -595,7 +618,7 @@
         
     }else if([remoteType isEqualToString:@"Custom"]){
         rmDevice.type=remoteType;
-        rmDevice.name=[remote objectForKey:@"remote_name"];
+        rmDevice.name=[remote objectForKey:@"device_name"];
         
         NSArray *remoteBtnArray = [remote objectForKey:@"buttons"];
         for (int j=0; j<[remoteBtnArray count]; j++) {
@@ -610,7 +633,7 @@
         }
         
     }else{
-        NSLog(@"添加下载遥控失败！！！%@",[remote objectForKey:@"remote_name"]);
+        NSLog(@"添加下载遥控失败！！！%@",[remote objectForKey:@"device_name"]);
         //error
         return;
     }

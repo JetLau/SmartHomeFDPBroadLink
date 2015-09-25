@@ -9,7 +9,9 @@
 #import "VoiceViewController.h"
 #import "VoiceManager.h"
 #import "VoiceCommandRecognizer.h"
-
+#import "RMDeviceManager.h"
+#import "ProgressHUD/ProgressHUD.h"
+#import "VoiceTableViewController.h"
 @interface VoiceViewController ()
 
 @end
@@ -69,6 +71,24 @@
     NSLog(@"resultStr=%@",resultStr);
     VoiceCommandRecognizer *voiceCommandRecognizer=[VoiceCommandRecognizer createVoiceCommandRecognizer];
     [voiceCommandRecognizer voiceCommandRecognize:resultStr];
+}
+
+- (IBAction)enquiryVoiceList:(UIButton *)sender {
+    
+    RMDeviceManager *deviceManager = [RMDeviceManager createRMDeviceManager];
+    NSMutableArray *voiceList = [deviceManager getVoiceList];
+    NSLog(@"voice list: %@", [deviceManager getVoiceList]);
+    if (voiceList == nil) {
+        [ProgressHUD showError:@"没有语音命令！"];
+        return;
+    }else{
+        VoiceTableViewController *voiceListViewCtrl = [[VoiceTableViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:voiceListViewCtrl];
+        voiceListViewCtrl.voiceList = voiceList;
+        [voiceListViewCtrl.navigationItem setTitle:@"语音列表"];
+
+        [self presentViewController:nav animated:YES completion:nil];
+    }
 }
 - (void)didReceiveMemoryWarning
 {

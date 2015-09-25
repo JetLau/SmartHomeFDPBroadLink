@@ -35,6 +35,7 @@
 
 -(int)addRemoteButton:(int)rmDeviceIndex;
 -(NSArray *)getBtnArray:(int)index;
+-(NSMutableArray *) getVoiceList;
 
 -(void)deleteCustomBtn:(int)rmDeviceIndex btnId:(int)btnId;
 

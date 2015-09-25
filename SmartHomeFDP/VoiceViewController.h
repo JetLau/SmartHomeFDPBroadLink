@@ -21,5 +21,6 @@
 
 -(IBAction)voiceButtonTouchDown:(id)sender;
 - (void)getVoiceRecognizerResult:(NSString *)resultStr;
+- (IBAction)enquiryVoiceList:(UIButton *)sender;
 
 @end

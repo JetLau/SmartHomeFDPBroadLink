@@ -240,6 +240,8 @@
 		60C020701A0A6E12002E3764 /* voiceImgLight@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60C0206C1A0A6E12002E3764 /* voiceImgLight@2x.jpg */; };
 		60C7A26E1AEF220B005314A5 /* SCRFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A26D1AEF220B005314A5 /* SCRFTPRequest.m */; };
 		60C7A2841B01D210005314A5 /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7A2801B01D210005314A5 /* MyPoint.m */; };
+		60CCFC5D1BB0F6540067AE44 /* VoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFC5B1BB0F6540067AE44 /* VoiceTableViewController.m */; };
+		60CCFC5E1BB0F6540067AE44 /* VoiceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CCFC5C1BB0F6540067AE44 /* VoiceTableViewController.xib */; };
 		60D3E9AB1A678BF9004FEF75 /* BLDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */; };
 		F99E4C3CE25570AF207BC1EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FAC96A77F0AE813B9D87630 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -607,6 +609,9 @@
 		60C7A26D1AEF220B005314A5 /* SCRFTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRFTPRequest.m; sourceTree = "<group>"; };
 		60C7A27F1B01D210005314A5 /* MyPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPoint.h; sourceTree = "<group>"; };
 		60C7A2801B01D210005314A5 /* MyPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPoint.m; sourceTree = "<group>"; };
+		60CCFC5A1BB0F6540067AE44 /* VoiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceTableViewController.h; sourceTree = "<group>"; };
+		60CCFC5B1BB0F6540067AE44 /* VoiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceTableViewController.m; sourceTree = "<group>"; };
+		60CCFC5C1BB0F6540067AE44 /* VoiceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceTableViewController.xib; sourceTree = "<group>"; };
 		60D3E9A91A678BF9004FEF75 /* BLDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDeviceManager.h; sourceTree = "<group>"; };
 		60D3E9AA1A678BF9004FEF75 /* BLDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDeviceManager.m; sourceTree = "<group>"; };
 		680DB5CBB6A64F90FF3EF1F0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -1256,6 +1261,9 @@
 				470DACF81A1F4E95003A9EE8 /* VoiceViewController.xib */,
 				470DACF91A1F4E95003A9EE8 /* VoiceCommandRecognizer.h */,
 				470DACFA1A1F4E95003A9EE8 /* VoiceCommandRecognizer.m */,
+				60CCFC5A1BB0F6540067AE44 /* VoiceTableViewController.h */,
+				60CCFC5B1BB0F6540067AE44 /* VoiceTableViewController.m */,
+				60CCFC5C1BB0F6540067AE44 /* VoiceTableViewController.xib */,
 			);
 			name = VoiceView;
 			sourceTree = "<group>";
@@ -1588,6 +1596,7 @@
 				601570521B9C2F0700FC24C1 /* MHomeViewController.xib in Resources */,
 				60421DF41A0FB2AA007E868D /* textField@2x.png in Resources */,
 				6015704D1B9C2F0700FC24C1 /* DiffEnqueryDeviceTableViewController.xib in Resources */,
+				60CCFC5E1BB0F6540067AE44 /* VoiceTableViewController.xib in Resources */,
 				60C0204B1A0A3C67002E3764 /* setter_light.png in Resources */,
 				60C020321A0A3C67002E3764 /* login_btn_blue_press.png in Resources */,
 				47D570981A22CB6600646865 /* HomeViewController.xib in Resources */,
@@ -1772,6 +1781,7 @@
 				47BEC0641A0B13F700FD9CDC /* RemoteControlDeviceViewController.m in Sources */,
 				60C01F741A0879FA002E3764 /* SBJson4StreamTokeniser.m in Sources */,
 				606DC7AA1B0C5D51001B78E8 /* GpsDataTableViewController.m in Sources */,
+				60CCFC5D1BB0F6540067AE44 /* VoiceTableViewController.m in Sources */,
 				60032F0E1A1A106F00F07B8C /* AFHTTPRequestOperationManager.m in Sources */,
 				60C01FDF1A09AFBD002E3764 /* RootController.m in Sources */,
 				6015705A1B9C2F0700FC24C1 /* OEMSEnergyGraphViewController.m in Sources */,

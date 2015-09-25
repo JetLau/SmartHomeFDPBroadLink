@@ -44,7 +44,7 @@
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:username, @"username", password, @"password", nil];
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/user/user_login.action?qu=11&&requestStr=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/user/user_login.action?requestStr=%@",ipAddr,josnString];
     NSLog(@"%@",urlString);
 
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];

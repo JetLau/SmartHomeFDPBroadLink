@@ -172,7 +172,7 @@
         case 2:
             
             
-            if (self.district == nil) {
+            if (self.street == nil) {
                 [ProgressHUD showError:@"街道列表获取失败!"];
             }else{
                 [addressTableView reloadData];

@@ -82,6 +82,9 @@
         else
         {
             self.BLDeviceArray=[[NSMutableArray alloc]initWithContentsOfFile:self.path];
+            if (self.BLDeviceArray == nil) {
+                self.BLDeviceArray=[[NSMutableArray alloc]init];
+            }
         }
     }
     

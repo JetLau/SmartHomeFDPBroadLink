@@ -19,6 +19,9 @@
 #import "MapViewController.h"
 #import "GpsDataTableViewController.h"
 #import "GeocodeDemoViewController.h"
+#import "UserInfo.h"
+#import "UserDetailViewController.h"
+
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface SettingViewController ()
@@ -64,26 +67,27 @@
     [LJGroup.items addObject:downloadItem];
 //    LJCommonItem *statisticItem=[LJCommonItem itemWithTitle:@"操作统计"];
 //    [LJGroup.items addObject:statisticItem];
-    LJCommonItem *upLoadItem=[LJCommonItem itemWithTitle:@"上传遥控列表"];
-    [LJGroup.items addObject:upLoadItem];
-    //地图
-    LJCommonItem *mapItem=[LJCommonItem itemWithTitle:@"设备位置"];
-    [LJGroup.items addObject:mapItem];
-    //gps历史数据
-    LJCommonItem *gpsDataItem=[LJCommonItem itemWithTitle:@"设备GPS历史数据"];
-    [LJGroup.items addObject:gpsDataItem];
-    //某一天的地图
-    LJCommonItem *oneDayMap=[LJCommonItem itemWithTitle:@"历史日期位置显示"];
-    [LJGroup.items addObject:oneDayMap];
+//    LJCommonItem *upLoadItem=[LJCommonItem itemWithTitle:@"上传遥控列表"];
+//    [LJGroup.items addObject:upLoadItem];
+//    //地图
+//    LJCommonItem *mapItem=[LJCommonItem itemWithTitle:@"设备位置"];
+//    [LJGroup.items addObject:mapItem];
+//    //gps历史数据
+//    LJCommonItem *gpsDataItem=[LJCommonItem itemWithTitle:@"设备GPS历史数据"];
+//    [LJGroup.items addObject:gpsDataItem];
+//    //某一天的地图
+//    LJCommonItem *oneDayMap=[LJCommonItem itemWithTitle:@"历史日期位置显示"];
+//    [LJGroup.items addObject:oneDayMap];
 }
 
 -(void)setGroup1
 {
     LJCommonGroup *LJGroup=[[LJCommonGroup alloc]init];
     [self.groups addObject:LJGroup];
+    LJCommonItem *detailItem=[LJCommonItem itemWithTitle:@"账号详情"];
+    [LJGroup.items addObject:detailItem];
     
     LJCommonItem *outItem=[LJCommonItem itemWithTitle:@"退出登录"];
-    
     [LJGroup.items addObject:outItem];
 }
 
@@ -109,14 +113,23 @@
             [self showOneDayMap];
         }
     }
-    if(indexPath.section==1&&indexPath.item==0)
+    if(indexPath.section==1)
     {
-        [self logOutSystem];
+        if (indexPath.item==0) {
+            [self switchToDetailView];
+        }else if(indexPath.item == 1){
+            [self logOutSystem];
+        }
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
-
+-(void)switchToDetailView{
+    //[ProgressHUD show:@"正在获取用户详情"];
+    self.view.userInteractionEnabled = false;
+    [self switchToDetailViewController:[[UserInfo alloc] init]];
+    
+}
 -(void)logOutSystem
 {
     //删除userdefaults中的用户信息
@@ -132,6 +145,15 @@
     
     RootController *rootController=(RootController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     [rootController switchToLoginView];
+}
+
+- (void)switchToDetailViewController:(UserInfo*)user
+{
+    [self.view setUserInteractionEnabled:true];
+    
+    UserDetailViewController *userDetailViewController = [[UserDetailViewController alloc] initWithNibName:@"UserDetailViewController" bundle:nil];
+    userDetailViewController.user = user;
+    [self.navigationController pushViewController:userDetailViewController animated:YES];
 }
 
 -(void)downloadDevices

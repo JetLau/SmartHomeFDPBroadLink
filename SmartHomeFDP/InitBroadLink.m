@@ -224,26 +224,9 @@
 
 -(NSMutableArray*)readDeviceInfoFromPlist
 {
-//    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-//    NSString *path = [doc stringByAppendingPathComponent:@"DeviceInfo.plist"];
-//        NSArray *dictArray = [[NSArray alloc] initWithContentsOfFile:path];
-//    NSArray *devicesArray;
-//    if (dictArray) {
-//        devicesArray=[BLDeviceInfo objectArrayWithKeyValuesArray:dictArray];
-//    }
-//    if (devicesArray != nil) {
-//        doc=nil;
-//        path = nil;
-//        dictArray = nil;
-//        return  devicesArray;
-//    }else{
-//        doc=nil;
-//        path = nil;
-//        dictArray = nil;
-//        return [[NSArray alloc]init];
-//    }
+
     BLDeviceManager *blDevManager = [BLDeviceManager createBLDeviceManager];
-    return blDevManager.readBLDeviceInfoFromPlist;
+    return [blDevManager readBLDeviceInfoFromPlist];
 }
 
 - (void)addAllDevices
