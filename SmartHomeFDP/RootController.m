@@ -12,6 +12,8 @@
 #import "SmartHomeAPIs.h"
 #import "NavigationViewController.h"
 #import "MHomeViewController.h"
+#define CommonUser 5
+
 @interface RootController ()
 
 @property(nonatomic, strong) LoginViewController *loginViewController;
@@ -86,7 +88,7 @@
 - (void)switchNextViewController:(NSString*)roleId
 {
     int id = [roleId intValue];
-    if (id == 4) {
+    if (id == CommonUser) {
         [self switchToMainTabBarView];
     }else {
         [self switchToManagerView];

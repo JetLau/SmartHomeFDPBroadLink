@@ -12,6 +12,11 @@
 #import "DiffEnqueryDeviceTableViewController.h"
 #import "SmartHomeAPIs.h"
 #import "ProgressHUD.h"
+
+#define cityManager 2
+#define districtManager 3
+#define streetManager 4
+
 @interface MDeviceManageViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
@@ -53,7 +58,7 @@
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
     self.address = [userDefaults objectForKey:@"address"];
     //self.city = [[NSMutableArray alloc] init];
-    if([[userDefaults objectForKey:@"roleId"]intValue]  == 8)
+    if([[userDefaults objectForKey:@"roleId"]intValue]  == cityManager)
     {
         [addressSegment setTitle:[userDefaults objectForKey:@"addressName"] forSegmentAtIndex:0];
         //[self.addressDic setValue:[self.city objectAtIndex:indexPath.row] forKey:@"city"];
@@ -62,7 +67,7 @@
         
         [self getChildAddressList:[userDefaults objectForKey:@"address"] andRoleId:[userDefaults objectForKey:@"roleId"]];
         
-    }else if ([[userDefaults objectForKey:@"roleId"] intValue] == 2){
+    }else if ([[userDefaults objectForKey:@"roleId"] intValue] == districtManager){
         [addressSegment setTitle:[userDefaults objectForKey:@"addressName"] forSegmentAtIndex:1];
         //[self.addressDic setValue:[self.city objectAtIndex:indexPath.row] forKey:@"city"];
         [addressSegment setEnabled:NO forSegmentAtIndex:0];
@@ -70,7 +75,7 @@
         [addressSegment setEnabled:YES forSegmentAtIndex:2];
         
         [self getChildAddressList:[userDefaults objectForKey:@"address"] andRoleId:[userDefaults objectForKey:@"roleId"]];
-    }else if([[userDefaults objectForKey:@"roleId"] intValue] == 3){
+    }else if([[userDefaults objectForKey:@"roleId"] intValue] == streetManager){
         [addressSegment setTitle:[userDefaults objectForKey:@"addressName"] forSegmentAtIndex:2];
         //[self.addressDic setValue:[self.city objectAtIndex:indexPath.row] forKey:@"city"];
         [addressSegment setEnabled:NO forSegmentAtIndex:0];
@@ -243,17 +248,17 @@
         int role_id = [roleId intValue];
         if([[resultDic objectForKey:@"result"] isEqualToString:@"success"])
         {
-            if (role_id == 8) {
+            if (role_id == cityManager) {
                 self.district = [resultDic objectForKey:@"addressList"];
-            }else if (role_id == 2){
+            }else if (role_id == districtManager){
                 self.street = [resultDic objectForKey:@"addressList"];
             }
         }else
         {
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (role_id == 8) {
+                if (role_id == cityManager) {
                     [ProgressHUD showError:@"区列表获取失败，请检查网络！"];
-                }else if (role_id == 2){
+                }else if (role_id == districtManager){
                     [ProgressHUD showError:@"街道列表获取失败，请检查网络！"];
                 }
             });

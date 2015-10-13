@@ -12,7 +12,7 @@
 #import "SmartHomeAPIs.h"
 #import "RegisterViewController.h"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
+#define CommonUser 5
 @interface LoginViewController ()
 
 @end
@@ -134,7 +134,7 @@
 {
     RootController *rootController = (RootController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     int id = [roleId intValue];
-    if (id == 4) {
+    if (id == CommonUser) {
         [rootController switchToMainTabBarView];
     }else {
         [rootController switchToManagerView];
