@@ -75,40 +75,50 @@
         rmDevice.type=_remoteType;
         int remoteCount = [rmDeviceManager getRemoteCount:_remoteType];
         rmDevice.name=[@"电视" stringByAppendingFormat:@"%@",[NSNumber numberWithInt:remoteCount+1]];
+        NSArray *tvBtnName = [[NSArray alloc] initWithObjects:@"电视开关",@"电视静音",@"电视向上",@"电视向下",@"电视向左",@"电视向右",@"电视确定", nil];
         for (int i = 0; i<7; i++) {
-            NSDictionary *dic=[[NSDictionary alloc]initWithObjectsAndKeys:[[NSNumber alloc]initWithInt:i], @"buttonId",@"",@"sendData",@"",@"buttonInfo",@"",@"btnName",nil];
+            NSDictionary *dic=[[NSDictionary alloc]initWithObjectsAndKeys:[[NSNumber alloc]initWithInt:i], @"buttonId",@"",@"sendData",@"",@"buttonInfo",[tvBtnName objectAtIndex:i],@"btnName",nil];
             [rmDevice addRMButton:dic];
         }
     } else if([_remoteType isEqualToString:@"AirCondition"]){
         rmDevice.type=_remoteType;
         int remoteCount = [rmDeviceManager getRemoteCount:_remoteType];
         rmDevice.name=[@"空调" stringByAppendingFormat:@"%@",[NSNumber numberWithInt:remoteCount+1]];
+        
+        NSArray *airBtnName = [[NSArray alloc] initWithObjects:@"空调开关",@"空调加",@"空调减", nil];
+        
         for (int i = 0; i<3; i++) {
-            NSDictionary *dic=[[NSDictionary alloc]initWithObjectsAndKeys:[[NSNumber alloc]initWithInt:i], @"buttonId",@"",@"sendData",@"",@"buttonInfo",@"",@"btnName",nil];
+            NSDictionary *dic=[[NSDictionary alloc]initWithObjectsAndKeys:[[NSNumber alloc]initWithInt:i], @"buttonId",@"",@"sendData",@"",@"buttonInfo",[airBtnName objectAtIndex:i],@"btnName",nil];
             [rmDevice addRMButton:dic];
         }
     }else if([_remoteType isEqualToString:@"Curtain"]){
         rmDevice.type=_remoteType;
         int remoteCount = [rmDeviceManager getRemoteCount:_remoteType];
         rmDevice.name=[@"窗帘" stringByAppendingFormat:@"%@",[NSNumber numberWithInt:remoteCount+1]];
+        NSArray *curtainBtnName = [[NSArray alloc] initWithObjects:@"窗帘关",@"窗帘开",@"窗帘停", nil];
+
         for (int i = 0; i<3; i++) {
-            NSDictionary *dic=[[NSDictionary alloc]initWithObjectsAndKeys:[[NSNumber alloc]initWithInt:i], @"buttonId",@"",@"sendData",@"",@"buttonInfo",@"",@"btnName",nil];
+            NSDictionary *dic=[[NSDictionary alloc]initWithObjectsAndKeys:[[NSNumber alloc]initWithInt:i], @"buttonId",@"",@"sendData",@"",@"buttonInfo",[curtainBtnName objectAtIndex:i],@"btnName",nil];
             [rmDevice addRMButton:dic];
         }
     }else if([_remoteType isEqualToString:@"Projector"]){
         rmDevice.type=_remoteType;
         int remoteCount = [rmDeviceManager getRemoteCount:_remoteType];
         rmDevice.name=[@"投影仪" stringByAppendingFormat:@"%@",[NSNumber numberWithInt:remoteCount+1]];
+        NSArray *projectorBtnName = [[NSArray alloc] initWithObjects:@"投影仪关",@"投影仪开", nil];
+
         for (int i = 0; i<2; i++) {
-            NSDictionary *dic=[[NSDictionary alloc]initWithObjectsAndKeys:[[NSNumber alloc]initWithInt:i], @"buttonId",@"",@"sendData",@"",@"buttonInfo",@"",@"btnName",nil];
+            NSDictionary *dic=[[NSDictionary alloc]initWithObjectsAndKeys:[[NSNumber alloc]initWithInt:i], @"buttonId",@"",@"sendData",@"",@"buttonInfo",[projectorBtnName objectAtIndex:i],@"btnName",nil];
             [rmDevice addRMButton:dic];
         }
     }else if([_remoteType isEqualToString:@"Light"]){
         rmDevice.type=_remoteType;
         int remoteCount = [rmDeviceManager getRemoteCount:_remoteType];
         rmDevice.name=[@"电灯" stringByAppendingFormat:@"%@",[NSNumber numberWithInt:remoteCount+1]];
+        NSArray *lightBtnName = [[NSArray alloc] initWithObjects:@"关灯",@"开灯", nil];
+
         for (int i = 0; i<2; i++) {
-            NSDictionary *dic=[[NSDictionary alloc]initWithObjectsAndKeys:[[NSNumber alloc]initWithInt:i], @"buttonId",@"",@"sendData",@"",@"buttonInfo",@"",@"btnName",nil];
+            NSDictionary *dic=[[NSDictionary alloc]initWithObjectsAndKeys:[[NSNumber alloc]initWithInt:i], @"buttonId",@"",@"sendData",@"",@"buttonInfo",[lightBtnName objectAtIndex:i],@"btnName",nil];
             [rmDevice addRMButton:dic];
         }
     }else if([_remoteType isEqualToString:@"Custom"]){

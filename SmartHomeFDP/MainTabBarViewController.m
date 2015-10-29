@@ -13,13 +13,24 @@
 #import "VoiceViewController.h"
 #import "DeviceListViewController.h"
 #import "SettingViewController.h"
+#import "SmartHomeAPIs.h"
 #define mtbvQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @implementation MainTabBarViewController
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    //获取setting中设置的URL
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *userQu = [defaults stringForKey:@"qu"];
+    if (userQu==nil || [userQu isEqualToString:@""])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"未获取当前用户区号" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alertView show];
+    }else{
+        NSLog(@"qu : %@", userQu);
+        [SmartHomeAPIs SetQu:userQu];
+    }
     HomeViewController *homeView=[[HomeViewController alloc]init];
     UINavigationController *homeNav=[[UINavigationController alloc]initWithRootViewController:homeView];
     homeView.navigationItem.title=@"首页";

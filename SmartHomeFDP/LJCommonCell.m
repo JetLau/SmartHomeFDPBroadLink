@@ -106,7 +106,9 @@
 {
     _item = item;
     //设置基本数据
-    self.imageView.image = [UIImage imageNamed:item.icon];
+    if (item.icon != nil) {
+        self.imageView.image = [UIImage imageNamed:item.icon];
+    }
     self.textLabel.text = item.title;
     self.detailTextLabel.text = item.subtitle;
     

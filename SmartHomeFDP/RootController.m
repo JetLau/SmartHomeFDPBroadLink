@@ -37,7 +37,7 @@
     }
     NSLog(@"IP : %@", ipAddr);
     [SmartHomeAPIs setIpAddr:ipAddr];
-
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated

@@ -137,6 +137,16 @@
 		60421DF21A0FB29F007E868D /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = 60421DF11A0FB29F007E868D /* textField.png */; };
 		60421DF41A0FB2AA007E868D /* textField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60421DF31A0FB2AA007E868D /* textField@2x.png */; };
 		60421DF61A137CC5007E868D /* BtnStudyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60421DF51A137CC5007E868D /* BtnStudyViewController.m */; };
+		606A6A261BE1FD4D00FC1435 /* SceneViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 606A6A241BE1FD4D00FC1435 /* SceneViewCollectionViewCell.m */; };
+		606A6A271BE1FD4D00FC1435 /* SceneViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606A6A251BE1FD4D00FC1435 /* SceneViewCollectionViewCell.xib */; };
+		606A6A2A1BE2007100FC1435 /* ScenePlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 606A6A291BE2007100FC1435 /* ScenePlistManager.m */; };
+		606A6A2C1BE204FA00FC1435 /* defaultScenePic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 606A6A2B1BE204FA00FC1435 /* defaultScenePic.jpg */; };
+		606A6A301BE20E7100FC1435 /* AddSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606A6A2E1BE20E7100FC1435 /* AddSceneViewController.m */; };
+		606A6A311BE20E7100FC1435 /* AddSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606A6A2F1BE20E7100FC1435 /* AddSceneViewController.xib */; };
+		606A6A361BE217B100FC1435 /* SelectCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606A6A341BE217B100FC1435 /* SelectCommandTableViewController.m */; };
+		606A6A371BE217B100FC1435 /* SelectCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606A6A351BE217B100FC1435 /* SelectCommandTableViewController.xib */; };
+		606A6A3B1BE256C900FC1435 /* BtnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 606A6A391BE256C900FC1435 /* BtnTableViewCell.m */; };
+		606A6A3C1BE256C900FC1435 /* BtnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606A6A3A1BE256C900FC1435 /* BtnTableViewCell.xib */; };
 		606B74EB1B54ED2F0091E718 /* libBLNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 606B74EA1B54ED2F0091E718 /* libBLNetwork.a */; };
 		606C9B7D1A070D4C003BA6AD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C9B761A070D4C003BA6AD /* HomeViewController.m */; };
 		606C9B811A070D4C003BA6AD /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C9B7C1A070D4C003BA6AD /* DeviceListViewController.m */; };
@@ -468,6 +478,21 @@
 		60421DF11A0FB29F007E868D /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
 		60421DF31A0FB2AA007E868D /* textField@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textField@2x.png"; sourceTree = "<group>"; };
 		60421DF51A137CC5007E868D /* BtnStudyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BtnStudyViewController.m; sourceTree = "<group>"; };
+		606A6A231BE1FD4D00FC1435 /* SceneViewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneViewCollectionViewCell.h; sourceTree = "<group>"; };
+		606A6A241BE1FD4D00FC1435 /* SceneViewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneViewCollectionViewCell.m; sourceTree = "<group>"; };
+		606A6A251BE1FD4D00FC1435 /* SceneViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SceneViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		606A6A281BE2007100FC1435 /* ScenePlistManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScenePlistManager.h; sourceTree = "<group>"; };
+		606A6A291BE2007100FC1435 /* ScenePlistManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScenePlistManager.m; sourceTree = "<group>"; };
+		606A6A2B1BE204FA00FC1435 /* defaultScenePic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultScenePic.jpg; sourceTree = "<group>"; };
+		606A6A2D1BE20E7100FC1435 /* AddSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSceneViewController.h; sourceTree = "<group>"; };
+		606A6A2E1BE20E7100FC1435 /* AddSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSceneViewController.m; sourceTree = "<group>"; };
+		606A6A2F1BE20E7100FC1435 /* AddSceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSceneViewController.xib; sourceTree = "<group>"; };
+		606A6A331BE217B100FC1435 /* SelectCommandTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCommandTableViewController.h; sourceTree = "<group>"; };
+		606A6A341BE217B100FC1435 /* SelectCommandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCommandTableViewController.m; sourceTree = "<group>"; };
+		606A6A351BE217B100FC1435 /* SelectCommandTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCommandTableViewController.xib; sourceTree = "<group>"; };
+		606A6A381BE256C900FC1435 /* BtnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BtnTableViewCell.h; sourceTree = "<group>"; };
+		606A6A391BE256C900FC1435 /* BtnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BtnTableViewCell.m; sourceTree = "<group>"; };
+		606A6A3A1BE256C900FC1435 /* BtnTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BtnTableViewCell.xib; sourceTree = "<group>"; };
 		606B35251AAF2B9C00E6A8E3 /* BLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNetwork.h; sourceTree = "<group>"; };
 		606B74EA1B54ED2F0091E718 /* libBLNetwork.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBLNetwork.a; sourceTree = "<group>"; };
 		606C9B751A070D4C003BA6AD /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -1071,6 +1096,27 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		606A6A321BE20E7700FC1435 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				606A6A231BE1FD4D00FC1435 /* SceneViewCollectionViewCell.h */,
+				606A6A241BE1FD4D00FC1435 /* SceneViewCollectionViewCell.m */,
+				606A6A251BE1FD4D00FC1435 /* SceneViewCollectionViewCell.xib */,
+				606A6A281BE2007100FC1435 /* ScenePlistManager.h */,
+				606A6A291BE2007100FC1435 /* ScenePlistManager.m */,
+				606A6A2D1BE20E7100FC1435 /* AddSceneViewController.h */,
+				606A6A2E1BE20E7100FC1435 /* AddSceneViewController.m */,
+				606A6A2F1BE20E7100FC1435 /* AddSceneViewController.xib */,
+				606A6A331BE217B100FC1435 /* SelectCommandTableViewController.h */,
+				606A6A341BE217B100FC1435 /* SelectCommandTableViewController.m */,
+				606A6A351BE217B100FC1435 /* SelectCommandTableViewController.xib */,
+				606A6A381BE256C900FC1435 /* BtnTableViewCell.h */,
+				606A6A391BE256C900FC1435 /* BtnTableViewCell.m */,
+				606A6A3A1BE256C900FC1435 /* BtnTableViewCell.xib */,
+			);
+			name = scene;
+			sourceTree = "<group>";
+		};
 		606C9B561A065879003BA6AD /* MainViewLists */ = {
 			isa = PBXGroup;
 			children = (
@@ -1100,6 +1146,7 @@
 		60C01F2C1A072375002E3764 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				606A6A321BE20E7700FC1435 /* scene */,
 				606C9B751A070D4C003BA6AD /* HomeViewController.h */,
 				606C9B761A070D4C003BA6AD /* HomeViewController.m */,
 				47D570971A22CB6600646865 /* HomeViewController.xib */,
@@ -1319,6 +1366,7 @@
 		60C020091A0A3C67002E3764 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				606A6A2B1BE204FA00FC1435 /* defaultScenePic.jpg */,
 				60032F441A1D883E00F07B8C /* Custom_RM */,
 				60421DF11A0FB29F007E868D /* textField.png */,
 				60421DF31A0FB2AA007E868D /* textField@2x.png */,
@@ -1536,6 +1584,7 @@
 			files = (
 				601570691B9FC7DC00FC24C1 /* Images.xcassets in Resources */,
 				601570541B9C2F0700FC24C1 /* MSettingViewController.xib in Resources */,
+				606A6A3C1BE256C900FC1435 /* BtnTableViewCell.xib in Resources */,
 				60C01FDB1A09152E002E3764 /* ProgressHUD.bundle in Resources */,
 				601570621B9C2F0700FC24C1 /* UserDetailViewController.xib in Resources */,
 				60A781941A47F4C400F48B5F /* StatisticInfo.plist in Resources */,
@@ -1573,9 +1622,11 @@
 				60032F2A1A1CA5E000F07B8C /* btn_tv_left.png in Resources */,
 				470DAD231A21A509003A9EE8 /* ChangeTCPButtonInfoViewController.xib in Resources */,
 				60421DF01A0FAEDF007E868D /* BtnStudyViewController.xib in Resources */,
+				606A6A271BE1FD4D00FC1435 /* SceneViewCollectionViewCell.xib in Resources */,
 				60C0206E1A0A6E12002E3764 /* voiceImg@2x.jpg in Resources */,
 				602A78331AD4BF6A00A77E84 /* LightViewController.xib in Resources */,
 				47BEC04D1A0B084D00FD9CDC /* TVViewController.xib in Resources */,
+				606A6A371BE217B100FC1435 /* SelectCommandTableViewController.xib in Resources */,
 				60C0204A1A0A3C67002E3764 /* setter_dark.png in Resources */,
 				60C020541A0A3C86002E3764 /* curtain.png in Resources */,
 				60032F281A1CA5E000F07B8C /* btn_ok_press.png in Resources */,
@@ -1592,6 +1643,7 @@
 				60BBC6D31A3093120023906B /* socket.png in Resources */,
 				60C020351A0A3C67002E3764 /* login_dropdown_avatar_border@2x.png in Resources */,
 				60032F301A1CB70B00F07B8C /* AirCondition_add_press.png in Resources */,
+				606A6A2C1BE204FA00FC1435 /* defaultScenePic.jpg in Resources */,
 				601570601B9C2F0700FC24C1 /* TestMDeviceManageViewController.xib in Resources */,
 				601570521B9C2F0700FC24C1 /* MHomeViewController.xib in Resources */,
 				60421DF41A0FB2AA007E868D /* textField@2x.png in Resources */,
@@ -1639,6 +1691,7 @@
 				60C020331A0A3C67002E3764 /* login_btn_blue_press@2x.png in Resources */,
 				47DC4EE11A0E090700A7DBCD /* CurtainViewController.xib in Resources */,
 				60C020611A0A614C002E3764 /* icon_sp.png in Resources */,
+				606A6A311BE20E7100FC1435 /* AddSceneViewController.xib in Resources */,
 				47BEC06C1A0B522C00FD9CDC /* RemoteControlDeviceViewController.xib in Resources */,
 				60C0205F1A0A614C002E3764 /* SP2.png in Resources */,
 				60032F201A1CA57F00F07B8C /* btn_tv_power_press.png in Resources */,
@@ -1700,6 +1753,7 @@
 				60C01F731A0879FA002E3764 /* SBJson4StreamParserState.m in Sources */,
 				60C01F511A08790C002E3764 /* BLRM2StudyModel.m in Sources */,
 				60032F431A1D7D0300F07B8C /* CustomRemoteViewController.m in Sources */,
+				606A6A261BE1FD4D00FC1435 /* SceneViewCollectionViewCell.m in Sources */,
 				6015704C1B9C2F0700FC24C1 /* DiffEnqueryDeviceTableViewController.m in Sources */,
 				602A78321AD4BF6A00A77E84 /* LightViewController.m in Sources */,
 				60032F121A1A106F00F07B8C /* AFURLConnectionOperation.m in Sources */,
@@ -1723,6 +1777,7 @@
 				470DACF21A1F4E88003A9EE8 /* UDPEasyConfig.m in Sources */,
 				47BEC04B1A0B083D00FD9CDC /* TVViewController.m in Sources */,
 				470DAD211A21A4FE003A9EE8 /* ChangeTCPButtonInfoViewController.m in Sources */,
+				606A6A2A1BE2007100FC1435 /* ScenePlistManager.m in Sources */,
 				60C01F341A072567002E3764 /* BLDeviceInfo.m in Sources */,
 				606C9B811A070D4C003BA6AD /* DeviceListViewController.m in Sources */,
 				60421DDC1A0E7421007E868D /* NSObject+MJCoding.m in Sources */,
@@ -1743,6 +1798,7 @@
 				470DAD151A21811E003A9EE8 /* TCPDeviceViewController.m in Sources */,
 				6015704E1B9C2F0700FC24C1 /* FXLabel.m in Sources */,
 				606DC7A81B0C5D51001B78E8 /* MapViewController.m in Sources */,
+				606A6A301BE20E7100FC1435 /* AddSceneViewController.m in Sources */,
 				470DAD111A203002003A9EE8 /* TCPDevice.m in Sources */,
 				60C01FE31A0A0626002E3764 /* LJCommonViewController.m in Sources */,
 				470DAD091A1F4F03003A9EE8 /* GCDAsyncSocket.m in Sources */,
@@ -1778,6 +1834,7 @@
 				60C01F721A0879FA002E3764 /* SBJson4StreamParser.m in Sources */,
 				60032F511A1DF4A000F07B8C /* AddOrChangeCustomBtnViewController.m in Sources */,
 				60421DD81A0E7421007E868D /* MJMember.m in Sources */,
+				606A6A361BE217B100FC1435 /* SelectCommandTableViewController.m in Sources */,
 				47BEC0641A0B13F700FD9CDC /* RemoteControlDeviceViewController.m in Sources */,
 				60C01F741A0879FA002E3764 /* SBJson4StreamTokeniser.m in Sources */,
 				606DC7AA1B0C5D51001B78E8 /* GpsDataTableViewController.m in Sources */,
@@ -1800,6 +1857,7 @@
 				47D570A01A22F83400646865 /* DeviceInfoManagerForCell.m in Sources */,
 				6015705F1B9C2F0700FC24C1 /* TestMDeviceManageViewController.m in Sources */,
 				6015705D1B9C2F0700FC24C1 /* OEMSQueryTableViewCell.m in Sources */,
+				606A6A3B1BE256C900FC1435 /* BtnTableViewCell.m in Sources */,
 				6015704F1B9C2F0700FC24C1 /* MDeviceManageViewController.m in Sources */,
 				601570231B9C2EC000FC24C1 /* REMenuItem.m in Sources */,
 				470DACFB1A1F4E95003A9EE8 /* VoiceManager.m in Sources */,

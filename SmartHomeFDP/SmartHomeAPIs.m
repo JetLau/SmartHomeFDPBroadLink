@@ -132,7 +132,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateRemote.action?updateRemoteRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateRemote.action?qu=%@&&updateRemoteRequest=%@",ipAddr,userQu,josnString];
     NSLog(@"%@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error = nil;
@@ -158,7 +158,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateRemote.action?updateRemoteRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateRemote.action?qu=%@&&updateRemoteRequest=%@",ipAddr,userQu,josnString];
     NSLog(@"%@",urlString);
 
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -183,7 +183,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http:/%@/disableCommunityAOP/studyMode.action?studyRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http:/%@/disableCommunityAOP/studyMode.action?qu=%@&&studyRequest=%@",ipAddr,userQu,josnString];
     NSLog(@"%@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
@@ -206,7 +206,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/saveVoice.action?saveVoiceRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/saveVoice.action?qu=%@&&saveVoiceRequest=%@",ipAddr,userQu,josnString];
     NSLog(@"%@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
@@ -232,7 +232,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateBtn.action?updateBtnRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateBtn.action?qu=%@&&updateBtnRequest=%@",ipAddr,userQu,josnString];
     NSLog(@"%@",urlString);
 
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -259,7 +259,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateRemote.action?updateRemoteRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateRemote.action?qu=%@&&updateRemoteRequest=%@",ipAddr,userQu,josnString];
     NSLog(@"%@",urlString);
 
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -287,7 +287,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/controlRemoteMode.action?ctlRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/controlRemoteMode.action?qu=%@&&ctlRequest=%@",ipAddr,userQu,josnString];
     NSLog(@"%@",urlString);
 
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -314,7 +314,7 @@
     NSData *requestData = [dic JSONData];
     NSString *josnString = [[NSString alloc] initWithData:requestData encoding:NSUTF8StringEncoding];
     //NSLog(@"jsonString: %@",str);
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateBtn.action?updateBtnRequest=%@",ipAddr,josnString];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/updateBtn.action?qu=%@&&updateBtnRequest=%@",ipAddr,userQu,josnString];
     NSLog(@"%@",urlString);
 
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -338,7 +338,7 @@
 //2.9 获取遥控列表
 + (NSDictionary *)GetRemoteList:(NSString *)username
 {
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/refreshRemote.action?username=%@",ipAddr,username];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/disableCommunityAOP/refreshRemote.action?qu=%@&&username=%@",ipAddr,userQu,username];
     NSLog(@"获取遥控列表url %@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;
@@ -361,7 +361,7 @@
 //3.1 获取TCP设备列表
 + (NSDictionary *)GetTCPDeviceList:(NSString *)username
 {
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/getOneUserDevices.action?username=%@",ipAddr,username];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/webUnable/getOneUserDevices.action?qu=%@&&username=%@",ipAddr,userQu,username];
     NSLog(@"%@",urlString);
     NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSError *error;

@@ -77,7 +77,7 @@
     
     RMDeviceManager *deviceManager = [RMDeviceManager createRMDeviceManager];
     NSMutableArray *voiceList = [deviceManager getVoiceList];
-    NSLog(@"voice list: %@", [deviceManager getVoiceList]);
+    //NSLog(@"voice list: %@", [deviceManager getVoiceList]);
     if (voiceList == nil) {
         [ProgressHUD showError:@"没有语音命令！"];
         return;
