@@ -12,6 +12,7 @@
 #import "RMDeviceManager.h"
 #import "ProgressHUD/ProgressHUD.h"
 #import "VoiceTableViewController.h"
+#import "ScenePlistManager.h"
 @interface VoiceViewController ()
 
 @end
@@ -76,7 +77,15 @@
 - (IBAction)enquiryVoiceList:(UIButton *)sender {
     
     RMDeviceManager *deviceManager = [RMDeviceManager createRMDeviceManager];
-    NSMutableArray *voiceList = [deviceManager getVoiceList];
+    ScenePlistManager *sceneManager = [ScenePlistManager createScenePlistManager];
+    NSMutableArray *voiceList = [[NSMutableArray alloc] init];
+    if ([deviceManager getVoiceList] != nil) {
+        [voiceList addObjectsFromArray:[deviceManager getVoiceList]];
+    }
+    if ([sceneManager getSceneVoiceList] != nil) {
+        [voiceList addObjectsFromArray:[sceneManager getSceneVoiceList]];
+
+    }
     //NSLog(@"voice list: %@", [deviceManager getVoiceList]);
     if (voiceList == nil) {
         [ProgressHUD showError:@"没有语音命令！"];

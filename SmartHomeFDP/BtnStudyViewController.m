@@ -60,8 +60,8 @@
     dispatch_async(networkQueue, ^{
         //        UIButton *studyBtn = (UIButton *) sender;
         //        [studyBtn setEnabled:NO];
-        RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-        [rmDeviceManager initRMDeviceManage];
+        RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
+
         //NSDictionary *btnDic = [rmDeviceManager getRMButton:_rmDeviceIndex btnId:_btnId];
         RMDevice *btnDevice = [rmDeviceManager getRMDevice:_rmDeviceIndex];
         //BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithArgument:_info];
@@ -117,8 +117,7 @@
     }
     [ProgressHUD show:@"正在保存"];
     dispatch_async(networkQueue, ^{
-        RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-        [rmDeviceManager initRMDeviceManage];
+        RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
         //NSLog(@"btnId--%i",button.tag);
         NSString * name = [[rmDeviceManager getRMDevice:_rmDeviceIndex] name];
         BOOL TORF = [rmDeviceManager saveVoiceInfo:_rmDeviceIndex btnId:_btnId voiceInfo:voiceText];

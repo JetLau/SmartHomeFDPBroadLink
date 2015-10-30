@@ -43,17 +43,22 @@
     self.sceneManager = [ScenePlistManager createScenePlistManager];
     
     [self.btnTableView registerNib:[UINib nibWithNibName:@"BtnTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+   
+    if ([_style isEqualToString:@"add"]) {
+        self.sceneNameTextField.text = @"新建场景";
+
+    } else if([_style isEqualToString:@"edit"]){
+        //[self.btnTableView reloadData];
+        self.sceneNameTextField.text = self.sceneName;
+        self.voiceTextField.text = self.sceneVoice;
+        
+    }
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
     
-    if ([_style isEqualToString:@"add"]) {
-        self.sceneNameTextField.text = @"新建场景";
-
-    } else {
-        
-    }
+    
     
 }
 
@@ -63,9 +68,16 @@
 }
 
 -(void) saveScene{
-    [self.sceneManager addNewSceneIntoFile:[self.sceneNameTextField text] andBtnArray:self.sceneBtnArray andVoice:[self.voiceTextField text]];
-    NSLog(@"saved scene %@",[self.sceneNameTextField text]);
-    [self.navigationController popViewControllerAnimated:YES];
+    if ([_style isEqualToString:@"add"]) {
+        [self.sceneManager addNewSceneIntoFile:[self.sceneNameTextField text] andBtnArray:self.sceneBtnArray andVoice:[self.voiceTextField text]];
+        NSLog(@"saved scene %@",[self.sceneNameTextField text]);
+        [self.navigationController popViewControllerAnimated:YES];
+    } else if([_style isEqualToString:@"edit"]){
+        [self.sceneManager changeSceneInfo:[self.sceneNameTextField text] andBtnArray:self.sceneBtnArray andVoice:[self.voiceTextField text] andSceneId:self.sceneNum];
+        [self.navigationController popViewControllerAnimated:YES];
+
+    }
+   
     
 }
 
@@ -89,9 +101,6 @@
     //NSLog(@"%@",rmBtn.keyValues);
 }
 
--(void) editScene:(NSNotification*)notification{
-
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -122,5 +131,27 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        if (indexPath.section==0)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //NSLog(@"cell number %i",indexPath.row);
+                [self.sceneBtnArray removeObjectAtIndex:indexPath.row];
+                [self.btnTableView reloadData];
+            });
+            
+        }
+    }
+
+}
+
+//点击空白区域，键盘收起
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 @end

@@ -14,5 +14,6 @@
 @property(strong,nonatomic)NSString *sendData;
 @property(strong,nonatomic)NSString *buttonInfo;
 @property(strong,nonatomic)NSString *btnName;
+@property(strong,nonatomic)NSString *btnMac;
 
 @end

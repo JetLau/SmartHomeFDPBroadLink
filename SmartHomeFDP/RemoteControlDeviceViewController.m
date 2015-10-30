@@ -136,8 +136,7 @@
     group.groupheader = @"遥控列表";
     
     //3.设置组中所有行的数据
-    RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-    [rmDeviceManager initRMDeviceManage];
+    RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
     int rmDeviceCount=[rmDeviceManager getRMDeviceCount];
     for(int i=0;i<rmDeviceCount;i++)
     {
@@ -257,8 +256,8 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 //NSLog(@"cell number %i",indexPath.row);
 
-                RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-                [rmDeviceManager initRMDeviceManage];
+                RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
+
                 RMDevice *rmDevice = [rmDeviceManager getRMDevice:indexPath.row];
                 [rmDeviceManager removeRMDevice:indexPath.row];
                 

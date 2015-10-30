@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "BLDeviceInfo.h"
+#import "RMDeviceManager.h"
+
 @interface AddOrChangeCustomBtnViewController : UIViewController
 @property (nonatomic, strong) BLDeviceInfo * info;
 @property (nonatomic, assign) int rmDeviceIndex;
 @property (nonatomic, assign) int btnId;
 @property (nonatomic, strong) NSString * style;
+@property(strong,nonatomic)RMDeviceManager *rmDeviceManager;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *voiceTextField;

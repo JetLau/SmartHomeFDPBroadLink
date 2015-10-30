@@ -18,5 +18,7 @@
 +(instancetype) createScenePlistManager;
 
 -(int)addNewSceneIntoFile:(NSString *)name andBtnArray:(NSMutableArray*)btnArray andVoice:(NSString*) voice;
-
+-(BOOL)deleteOneScene:(int)index;
+-(BOOL)changeSceneInfo:(NSString *)name andBtnArray:(NSMutableArray*)btnArray andVoice:(NSString*) voice andSceneId:(int)sceneId;
+-(NSMutableArray*) getSceneVoiceList;
 @end

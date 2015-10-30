@@ -105,7 +105,8 @@ static ScenePlistManager *sceneManager = nil;
         [sceneDic setObject:rmButton.sendData forKey:@"sendData"];
         [sceneDic setObject:rmButton.buttonInfo forKey:@"buttonInfo"];
         [sceneDic setObject:rmButton.btnName forKey:@"btnName"];
-        
+        [sceneDic setObject:rmButton.btnMac forKey:@"btnMac"];
+
         [btnDicArray addObject:sceneDic];
     }
     [sceneDic setValue:btnDicArray forKey:@"buttonArray"];
@@ -129,5 +130,63 @@ static ScenePlistManager *sceneManager = nil;
         return 0;
     }
 }
+-(BOOL)deleteOneScene:(int)index{
+    [self.SceneArray removeObjectAtIndex:index];
+    
+    if([self ScenePlistExist])
+    {
+        return [self.SceneArray writeToFile:self.path atomically:YES];
+    }
+    else
+    {
+        [self createScenePlist];
+        [self.SceneArray writeToFile:self.path atomically:YES];
+    }
+    return FALSE;
+}
 
+-(BOOL)changeSceneInfo:(NSString *)name andBtnArray:(NSMutableArray*)btnArray andVoice:(NSString*) voice andSceneId:(int)sceneId{
+    NSMutableDictionary *sceneDic=[[NSMutableDictionary alloc]init];
+    [sceneDic setValue:name forKey:@"name"];
+    [sceneDic setValue:voice forKey:@"voice"];
+    
+    NSMutableArray *btnDicArray=[[NSMutableArray alloc]init];
+    
+    for(int i=0;i<[btnArray count];i++)
+    {
+        RMButton *rmButton=[btnArray objectAtIndex:i];
+        NSMutableDictionary *sceneDic=[[NSMutableDictionary alloc]init];
+        [sceneDic setObject:[[NSNumber alloc]initWithInt:rmButton.buttonId] forKey:@"buttonId"];
+        [sceneDic setObject:rmButton.sendData forKey:@"sendData"];
+        [sceneDic setObject:rmButton.buttonInfo forKey:@"buttonInfo"];
+        [sceneDic setObject:rmButton.btnName forKey:@"btnName"];
+        [sceneDic setObject:rmButton.btnMac forKey:@"btnMac"];
+
+        [btnDicArray addObject:sceneDic];
+    }
+    [sceneDic setValue:btnDicArray forKey:@"buttonArray"];
+    [self.SceneArray replaceObjectAtIndex:sceneId withObject:sceneDic];
+    //NSLog(@"self.RMDeviceArray = %@",self.RMDeviceArray);
+    return [self.SceneArray writeToFile:self.path atomically:YES];
+}
+
+-(NSMutableArray*) getSceneVoiceList{
+    if (self.SceneArray == nil || [self.SceneArray count] == 0) {
+        return nil;
+    }else{
+        NSMutableArray *voicelist = [[NSMutableArray alloc] init];
+        for (NSDictionary *dic in self.SceneArray) {
+            
+            if (![[dic objectForKey:@"voice"] isEqualToString:@""]) {
+                [voicelist addObject:[dic objectForKey:@"voice"]];
+            }
+            
+        }
+        if([voicelist count] == 0){
+            return nil;
+        }else{
+            return voicelist;
+        }
+    }
+}
 @end

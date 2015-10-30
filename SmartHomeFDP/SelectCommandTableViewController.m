@@ -98,20 +98,22 @@
     self.btnNum = indexPath.row;
     
     self.selectedBtn = [[self.rmDeviceManager getRMDevice:indexPath.section].RMButtonArray objectAtIndex:indexPath.row];
-//    if ([self.selectedBtn.sendData isEqualToString:@""]) {
-//        [ProgressHUD showError:@"此按钮未学习"];
-//    }else
-//    {
+    self.selectedBtn.btnMac = [self.rmDeviceManager getRMDevice:indexPath.section].mac;
+
+    if ([self.selectedBtn.sendData isEqualToString:@""]) {
+        [ProgressHUD showError:@"此按钮未学习"];
+    }else
+    {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入所选按键执行命令名称，比如\"电视打开\"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
         [alertView show];
-//    }
+    }
     
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"buttonIndex = %d,%@", buttonIndex,[[alertView textFieldAtIndex:0] text]);
+//    NSLog(@"buttonIndex = %d,%@", buttonIndex,[[alertView textFieldAtIndex:0] text]);
     if(buttonIndex==1)
     {
         self.selectedBtn.btnName = [[alertView textFieldAtIndex:0] text];

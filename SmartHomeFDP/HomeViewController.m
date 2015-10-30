@@ -24,11 +24,22 @@
 #import "SceneViewCollectionViewCell.h"
 #import "ScenePlistManager.h"
 #import "AddSceneViewController.h"
+#import "MJExtension.h"
+#import "RMButton.h"
+#import "ProgressHUD.h"
+#import "BLNetwork.h"
+
 #define homeViewQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface HomeViewController ()
 
+
+@property (nonatomic, strong) BLNetwork *network;
+
 @end
+
+
+
 
 @implementation HomeViewController
 @synthesize rmDeviceManager;
@@ -41,7 +52,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _network = [[BLNetwork alloc] init];
     }
     return self;
 }
@@ -77,7 +88,7 @@
     rmDeviceArray=rmDeviceManager.RMDeviceArray;
     tcpDeviceArray=tcpDeviceManager.TCPDeviceArray;
     sceneArray = scenePlistmanager.SceneArray;
-    NSLog(@"sceneArray=%@",sceneArray);
+//    NSLog(@"sceneArray=%@",sceneArray);
     //sceneArray = [[NSArray alloc] initWithObjects:@"11",@"11",@"11",@"11",@"11",@"11",@"11",@"11", nil];
     [self.collectionView reloadData];
     [self.sceneView reloadData];
@@ -173,10 +184,36 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     int index=indexPath.row;
-    
     if ([collectionView isEqual:self.sceneView]) {
+        NSArray *btnArray = [[sceneArray objectAtIndex:index] objectForKey:@"buttonArray"];
+        int btnCount = [btnArray count];
+        int failnum = 0;
+        if (btnCount == 0) {
+            [ProgressHUD showError:@"此场景未添加控制命令"];
+        }else{
+            for (int i = 0; i < btnCount; i++) {
+                NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+                [dic setObject:[NSNumber numberWithInt:134] forKey:@"api_id"];
+                [dic setObject:@"rm2_send" forKey:@"command"];
+                [dic setObject:[[btnArray objectAtIndex:i] objectForKey:@"btnMac"] forKey:@"mac"];
+                [dic setObject:[[btnArray objectAtIndex:i] objectForKey:@"sendData"] forKey:@"data"];
+                NSData *requestData = [dic JSONData];
+                NSData *responseData = [_network requestDispatch:requestData];
+//                NSLog(@"%@",[responseData objectFromJSONData]);
+                if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] != 0)
+                {
+                    failnum++;
+                }
+                [NSThread sleepForTimeInterval:0.5];
+               
+            }
+            [ProgressHUD showSuccess:[NSString stringWithFormat:@"发送成功%d/%d个",btnCount-failnum,btnCount]];
 
-    }else{
+        }
+        
+
+        //NSLog(@"sceneView index %d,failnum = %d",indexPath.row,failnum);
+    }else if([collectionView isEqual:self.collectionView]){
         if(index<[rmDeviceArray count])//RMDevice
         {
             DeviceViewController *deviceViewController;
@@ -255,6 +292,26 @@
 
 -(void) editScene:(NSNotification*)notification{
     NSDictionary *dic = [notification userInfo];
-    NSLog(@"%@",dic);
+//    NSLog(@"%@",dic);
+    if([[dic objectForKey:@"mode"] isEqualToString:@"edit"]){
+        //修改scene
+        AddSceneViewController *addSceneVC = [[AddSceneViewController alloc] init];
+        addSceneVC.style = @"edit";
+        int sceneNum =[[dic objectForKey:@"collectionViewId"] intValue];
+        addSceneVC.sceneNum = sceneNum;
+        addSceneVC.sceneName =[[self.sceneArray objectAtIndex:sceneNum] objectForKey:@"name"];
+        addSceneVC.sceneVoice = [[self.sceneArray objectAtIndex:sceneNum] objectForKey:@"voice"];
+        addSceneVC.sceneBtnArray = [[NSMutableArray alloc] initWithArray:[RMButton objectArrayWithKeyValuesArray:[[self.sceneArray objectAtIndex:sceneNum] objectForKey:@"buttonArray"]]];
+        [self.navigationController pushViewController:addSceneVC animated:YES];
+//        self.sceneArray = scenePlistmanager.SceneArray;
+//        [self.sceneView reloadData];
+
+    }else if([[dic objectForKey:@"mode"] isEqualToString:@"delete"]){
+        
+        if ([scenePlistmanager deleteOneScene:[[dic objectForKey:@"collectionViewId"] intValue]]) {
+            self.sceneArray = scenePlistmanager.SceneArray;
+            [self.sceneView reloadData];
+        }
+    }
 }
 @end

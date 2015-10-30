@@ -122,8 +122,7 @@
 -(void)customBtnClicked:(RCDraggableButton *) btn
 {
     //[self operateStatistics:@"Custom"];
-    RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-    [rmDeviceManager initRMDeviceManage];
+    RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
     NSDictionary * dicBtn = [rmDeviceManager getRMButton:self.rmDeviceIndex btnId:btn.buttonId];
    
     //NSLog(@"_rmDeviceIndex %i dicBtn %@",_rmDeviceIndex,dicBtn);
@@ -177,8 +176,8 @@
         
     } else if(buttonIndex==2) {
         NSLog(@"删除");
-        RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-        [rmDeviceManager initRMDeviceManage];
+        RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
+
         [rmDeviceManager deleteCustomBtn:self.rmDeviceIndex btnId:self.btnId];
         for (id view in [self.view subviews]) {
             if ([view isKindOfClass:[RCDraggableButton class]] && [view tag] ==self.btnId) {

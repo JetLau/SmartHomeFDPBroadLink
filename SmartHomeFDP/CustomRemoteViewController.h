@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "RCDraggableButton.h"
 #import "DeviceViewController.h"
+#import "RMDeviceManager.h"
+
 @interface CustomRemoteViewController : DeviceViewController
+@property(strong,nonatomic)RMDeviceManager *rmDeviceManager;
 
 //-(int)addDevice;
 

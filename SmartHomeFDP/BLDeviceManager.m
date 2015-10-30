@@ -11,19 +11,27 @@
 #import "MJExtension.h"
 
 @implementation BLDeviceManager
+//static BLDeviceManager *blDeviceManager = nil;
 
 +(instancetype) createBLDeviceManager
 {
-    BLDeviceManager * blDeviceManager = [[BLDeviceManager alloc]init];
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *userName = [userDefaults stringForKey:@"username"];
-    blDeviceManager.docPath = [doc stringByAppendingPathComponent:userName];
-    blDeviceManager.path = [blDeviceManager.docPath stringByAppendingPathComponent:@"DeviceInfo.plist"];
-    //self.path=[[NSBundle mainBundle]pathForResource:@"RMDeviceInfo" ofType:@"plist"];
+//    @synchronized(self) {
+//        if(blDeviceManager == nil) {
+            BLDeviceManager *blDeviceManager = [[BLDeviceManager alloc] init];
+            
+            NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSString *userName = [userDefaults stringForKey:@"username"];
+            blDeviceManager.docPath = [doc stringByAppendingPathComponent:userName];
+            blDeviceManager.path = [blDeviceManager.docPath stringByAppendingPathComponent:@"DeviceInfo.plist"];
+            //self.path=[[NSBundle mainBundle]pathForResource:@"RMDeviceInfo" ofType:@"plist"];
+            
+            NSLog(@"path = %@",blDeviceManager.path);
+            [blDeviceManager readBLArrayInfoFromFile];
+//        }
+//    }
     
-    NSLog(@"path = %@",blDeviceManager.path);
-    [blDeviceManager readBLArrayInfoFromFile];
+    
     return blDeviceManager;
 }
 

@@ -14,6 +14,7 @@
 #import "SmartHomeAPIs.h"
 #import "ProgressHUD.h"
 #import "StatisticFileManager.h"
+#import "ScenePlistManager.h"
 #define remoteQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @implementation VoiceCommandRecognizer
@@ -23,6 +24,8 @@
     VoiceCommandRecognizer *voiceCommandRecognizer=[[VoiceCommandRecognizer alloc]init];
     voiceCommandRecognizer.rmDeviceManager=[RMDeviceManager createRMDeviceManager];
     voiceCommandRecognizer.tcpDeviceManager=[TCPDeviceManager createTCPDeviceManager];
+    voiceCommandRecognizer.scenePlistManager=[ScenePlistManager createScenePlistManager];
+    
     voiceCommandRecognizer.network=[[BLNetwork alloc]init];
     
     return voiceCommandRecognizer;
@@ -32,7 +35,7 @@
 {
     NSArray *rmDeviceArray=self.rmDeviceManager.RMDeviceArray;
     NSArray *tcpDeviceArray=self.tcpDeviceManager.TCPDeviceArray;
-    
+    NSArray *sceneArray = self.scenePlistManager.SceneArray;
     
     //匹配Remote设备
     for(int i=0;i<[rmDeviceArray count];i++)
@@ -56,12 +59,12 @@
             CFStringTransform((__bridge CFMutableStringRef)buttonInfoPY, 0, kCFStringTransformStripCombiningMarks, NO);
             
             NSRange range=[voiceCommandPY rangeOfString:buttonInfoPY];
-           // NSLog(@"拼音    %@  %@",voiceCommandPY,buttonInfoPY);
+            // NSLog(@"拼音    %@  %@",voiceCommandPY,buttonInfoPY);
             //NSRange range=[voiceCommandStr rangeOfString:buttonInfo];
             if(range.location !=NSNotFound)
             {
                 //匹配成功
-               // [self operateStatistics:0];
+                // [self operateStatistics:0];
                 
                 NSString *mac=[dic objectForKey:@"mac"];
                 NSString *name=[dic objectForKey:@"name"];
@@ -75,7 +78,7 @@
                 [dic setObject:sendData forKey:@"data"];
                 NSData *requestData = [dic JSONData];
                 NSData *responseData = [_network requestDispatch:requestData];
-
+                
                 dispatch_async(remoteQueue, ^{
                     int success = ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue]==0) ? 0:1;
                     //NSLog(@"success = %d",success);
@@ -87,7 +90,7 @@
                     [remoteDic setObject:sendData forKey:@"sendData"];
                     [remoteDic setObject:[NSNumber numberWithInt:success] forKey:@"success"];
                     [remoteDic setObject:[NSNumber numberWithInt:1] forKey:@"op_method"];
-
+                    
                     NSString *result=[SmartHomeAPIs Rm2SendData:remoteDic];
                     if (success == 0) {
                         dispatch_async(dispatch_get_main_queue(), ^{
@@ -97,9 +100,9 @@
                     
                     if([result isEqualToString:@"success"])
                     {
-//                        dispatch_async(dispatch_get_main_queue(), ^{
-//                            [ProgressHUD showSuccess:@"语音控制成功"];
-//                        });
+                        //                        dispatch_async(dispatch_get_main_queue(), ^{
+                        //                            [ProgressHUD showSuccess:@"语音控制成功"];
+                        //                        });
                     }
                     else
                     {
@@ -108,7 +111,7 @@
                         });
                     }
                 });
-
+                
                 return;
             }
         }
@@ -142,7 +145,7 @@
             if(range.location !=NSNotFound)
             {
                 //匹配成功
-               // [self operateStatistics:0];
+                // [self operateStatistics:0];
                 NSString *sendData=[buttonDic objectForKey:@"sendData"];
                 
                 NSString *success=[SmartHomeAPIs OperateVoiceCommand:sendData];
@@ -176,6 +179,67 @@
         }
     }
     
+    //匹配场景
+    for(int i=0;i<[sceneArray count];i++)
+    {
+        NSDictionary *dic=[sceneArray objectAtIndex:i];
+        NSString *voice=[dic objectForKey:@"voice"];
+        
+        if([voice isEqualToString:@""])
+        {
+            continue;
+        }
+        NSMutableString *voiceCommandPY=[[NSMutableString alloc]initWithString:voiceCommandStr];
+        NSMutableString *buttonInfoPY=[[NSMutableString alloc]initWithString:voice];
+        CFStringTransform((__bridge CFMutableStringRef)voiceCommandPY, 0, kCFStringTransformMandarinLatin, NO);
+        CFStringTransform((__bridge CFMutableStringRef)voiceCommandPY, 0, kCFStringTransformStripCombiningMarks, NO);
+        CFStringTransform((__bridge CFMutableStringRef)buttonInfoPY, 0, kCFStringTransformMandarinLatin, NO);
+        CFStringTransform((__bridge CFMutableStringRef)buttonInfoPY, 0, kCFStringTransformStripCombiningMarks, NO);
+        
+        NSRange range=[voiceCommandPY rangeOfString:buttonInfoPY];
+        // NSLog(@"拼音    %@  %@",voiceCommandPY,buttonInfoPY);
+        //NSRange range=[voiceCommandStr rangeOfString:buttonInfo];
+        if(range.location !=NSNotFound)
+        {
+            //匹配成功
+            // [self operateStatistics:0];
+            NSArray *btnArray = [dic objectForKey:@"buttonArray"];
+            int btnCount = [btnArray count];
+            __block int failnum = 0;
+            if (btnCount == 0) {
+                [ProgressHUD showError:@"此场景未添加控制命令"];
+            }else{
+                
+                dispatch_async(serverQueue, ^{
+                    for (int i = 0; i < btnCount; i++) {
+                        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+                        [dic setObject:[NSNumber numberWithInt:134] forKey:@"api_id"];
+                        [dic setObject:@"rm2_send" forKey:@"command"];
+                        [dic setObject:[[btnArray objectAtIndex:i] objectForKey:@"btnMac"] forKey:@"mac"];
+                        [dic setObject:[[btnArray objectAtIndex:i] objectForKey:@"sendData"] forKey:@"data"];
+                        NSData *requestData = [dic JSONData];
+                        NSData *responseData = [_network requestDispatch:requestData];
+                        NSLog(@"%@",[responseData objectFromJSONData]);
+                        if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] != 0)
+                        {
+                            failnum++;
+                        }
+                        [NSThread sleepForTimeInterval:0.5];
+                        
+                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [ProgressHUD showSuccess:[NSString stringWithFormat:@"发送成功%d/%d个",btnCount-failnum,btnCount]];
+                    });
+                });
+                
+                
+                
+            }
+            
+            
+            return;
+        }
+    }
     //[self operateStatistics:1];
     dispatch_async(dispatch_get_main_queue(), ^{
         [ProgressHUD showSuccess:@"未找到匹配的语音命令"];

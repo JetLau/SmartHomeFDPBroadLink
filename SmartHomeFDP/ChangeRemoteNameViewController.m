@@ -55,8 +55,8 @@
     }
     [ProgressHUD show:@"正在保存"];
     dispatch_async(remoteQueue, ^{
-        RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-        [rmDeviceManager initRMDeviceManage];
+        RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
+
         //NSLog(@"btnId--%i",button.tag);
         //BOOL TORF = [rmDeviceManager saveVoiceInfo:_rmDeviceIndex btnId:_btnId voiceInfo:voiceText];
         NSString * oldName = [[rmDeviceManager getRMDevice:_rmDeviceIndex] name];

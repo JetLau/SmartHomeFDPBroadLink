@@ -13,6 +13,8 @@
 @property (nonatomic, assign) int sceneNum;
 @property (nonatomic, strong) NSString * style;
 @property (nonatomic, strong) NSMutableArray *sceneBtnArray;
+@property (nonatomic, strong) NSString *sceneName;
+@property (nonatomic, strong) NSString *sceneVoice;
 @property (weak, nonatomic) IBOutlet UITextField *sceneNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *voiceTextField;
 @property (weak, nonatomic) IBOutlet UITableView *btnTableView;

@@ -68,8 +68,8 @@
     }
     [ProgressHUD show:@"正在保存"];
     dispatch_async(networkQueue, ^{
-        RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-        [rmDeviceManager initRMDeviceManage];
+        RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
+
         //NSLog(@"btnId--%i",button.tag);
         //BOOL TORF = [rmDeviceManager saveVoiceInfo:_rmDeviceIndex btnId:_btnId voiceInfo:voiceText];
         NSString * oldName = [[rmDeviceManager getRMDevice:_rmDeviceIndex] name];
@@ -107,8 +107,8 @@
     self.navigationController.navigationBar.userInteractionEnabled=NO;
     dispatch_async(networkQueue, ^{
  
-        RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-        [rmDeviceManager initRMDeviceManage];
+        RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
+
         RMDevice *btnDevice = [rmDeviceManager getRMDevice:_rmDeviceIndex];
         BLRM2StudyModel * rm2StudyModel = [BLRM2StudyModel studyModelWithBLDeviceInfo:_info rmDevice:btnDevice btnId:_btnId];
         NSString * code = [rm2StudyModel rm2StudyModelStart];
@@ -156,8 +156,8 @@
     }
     [ProgressHUD show:@"正在保存"];
     dispatch_async(networkQueue, ^{
-        RMDeviceManager *rmDeviceManager=[[RMDeviceManager alloc]init];
-        [rmDeviceManager initRMDeviceManage];
+        RMDeviceManager *rmDeviceManager=[RMDeviceManager createRMDeviceManager];
+
         //NSLog(@"btnId--%i",button.tag);
         NSString * name = [[rmDeviceManager getRMDevice:_rmDeviceIndex] name];
         BOOL isSave;

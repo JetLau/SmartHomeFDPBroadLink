@@ -10,20 +10,25 @@
 #import "RMButton.h"
 #import "MJExtension.h"
 @implementation RMDeviceManager
+//static RMDeviceManager *rmDeviceManager = nil;
 
 +(instancetype) createRMDeviceManager
 {
-    RMDeviceManager * rmDeviceManager = [[RMDeviceManager alloc]init];
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *userName = [userDefaults stringForKey:@"username"];
-    rmDeviceManager.docPath = [doc stringByAppendingPathComponent:userName];
-    rmDeviceManager.fileName = [userName stringByAppendingFormat:@"%@",@"RMDeviceInfo.plist"];
-    rmDeviceManager.path = [rmDeviceManager.docPath stringByAppendingPathComponent:rmDeviceManager.fileName];
-    //self.path=[[NSBundle mainBundle]pathForResource:@"RMDeviceInfo" ofType:@"plist"];
-    
-    NSLog(@"path = %@",rmDeviceManager.path);
-    [rmDeviceManager readRMDeviceInfoFromFile];
+//    @synchronized(self) {
+//        if(rmDeviceManager == nil) {
+        RMDeviceManager *rmDeviceManager = [[RMDeviceManager alloc] init];
+            NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSString *userName = [userDefaults stringForKey:@"username"];
+            rmDeviceManager.docPath = [doc stringByAppendingPathComponent:userName];
+            rmDeviceManager.fileName = [userName stringByAppendingFormat:@"%@",@"RMDeviceInfo.plist"];
+            rmDeviceManager.path = [rmDeviceManager.docPath stringByAppendingPathComponent:rmDeviceManager.fileName];
+            //self.path=[[NSBundle mainBundle]pathForResource:@"RMDeviceInfo" ofType:@"plist"];
+            
+            NSLog(@"path = %@",rmDeviceManager.path);
+            [rmDeviceManager readRMDeviceInfoFromFile];
+//        }
+//    }
     return rmDeviceManager;
 }
 
@@ -272,7 +277,7 @@
         return FALSE;
     }
     
-    //NSLog(@"_rmDeviceIndex %i dicBtn %@",_rmDeviceIndex,dicBtn);
+    NSLog(@"_rmDeviceIndex %i dicBtn %@",rmDeviceIndex,dicBtn);
     [dicBtn setValue:btnName forKey:@"btnName"];
     [arrayBtn replaceObjectAtIndex:arrayId withObject:dicBtn];
     [dicDevices setValue:arrayBtn forKey:@"buttonArray"];

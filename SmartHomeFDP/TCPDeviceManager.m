@@ -12,20 +12,28 @@
 #import "SmartHomeAPIs.h"
 
 @implementation TCPDeviceManager
+static TCPDeviceManager *tcpDeviceManager = nil;
 
 +(instancetype)createTCPDeviceManager
 {
-    TCPDeviceManager *tcpDeviceManager=[[TCPDeviceManager alloc]init];
+    @synchronized(self) {
+        if(tcpDeviceManager == nil) {
+            tcpDeviceManager = [[[self class] alloc] init];
+            
+            NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSString *userName = [userDefaults stringForKey:@"username"];
+            tcpDeviceManager.docPath = [doc stringByAppendingPathComponent:userName];
+            tcpDeviceManager.path = [tcpDeviceManager.docPath stringByAppendingPathComponent:@"TCPDeviceInfo.plist"];
+            
+            NSLog(@"path=%@",tcpDeviceManager.path);
+            
+            [tcpDeviceManager readTCPDeviceInfoFromFile];
+        }
+    }
     
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *userName = [userDefaults stringForKey:@"username"];
-    tcpDeviceManager.docPath = [doc stringByAppendingPathComponent:userName];
-    tcpDeviceManager.path = [tcpDeviceManager.docPath stringByAppendingPathComponent:@"TCPDeviceInfo.plist"];
     
-    NSLog(@"path=%@",tcpDeviceManager.path);
     
-    [tcpDeviceManager readTCPDeviceInfoFromFile];
     
     return tcpDeviceManager;
 }
