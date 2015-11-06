@@ -194,7 +194,7 @@
         //[self.addressDic setValue:[self.district objectAtIndex:indexPath.row] forKey:@"district"];
         [addressSegment setEnabled:YES forSegmentAtIndex:2];
         self.address = [[self.district objectAtIndex:indexPath.row] objectForKey:@"address_id"];
-        [self getChildAddressList:self.address andRoleId:@"2"];
+        [self getChildAddressList:self.address andRoleId:[NSString stringWithFormat:@"%d",districtManager]];
     } else {
         [addressSegment setTitle:[[self.street objectAtIndex:indexPath.row] objectForKey:@"address_name"] forSegmentAtIndex:2];
         //[self.addressDic setValue:[self.street objectAtIndex:indexPath.row] forKey:@"street"];

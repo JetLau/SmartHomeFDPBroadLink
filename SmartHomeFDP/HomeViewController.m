@@ -48,6 +48,7 @@
 @synthesize tcpDeviceArray;
 @synthesize scenePlistmanager;
 @synthesize sceneArray;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -88,6 +89,8 @@
     rmDeviceArray=rmDeviceManager.RMDeviceArray;
     tcpDeviceArray=tcpDeviceManager.TCPDeviceArray;
     sceneArray = scenePlistmanager.SceneArray;
+    
+    
 //    NSLog(@"sceneArray=%@",sceneArray);
     //sceneArray = [[NSArray alloc] initWithObjects:@"11",@"11",@"11",@"11",@"11",@"11",@"11",@"11", nil];
     [self.collectionView reloadData];
